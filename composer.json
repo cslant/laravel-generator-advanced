@@ -1,8 +1,18 @@
 {
     "name": "tanhongit/laravel-generator",
     "description": "Laravel Generator",
+    "homepage": "https://github.com/tanhongit/laravel-generator",
     "type": "library",
     "license": "MIT",
+    "keywords": [
+        "laravel",
+        "generator",
+        "crud",
+        "migration",
+        "model",
+        "controller",
+        "repository"
+    ],
     "autoload": {
         "psr-4": {
             "TanHongIT\\LaravelGenerator\\": "src/"
@@ -11,11 +21,18 @@
     "authors": [
         {
             "name": "Tan Nguyen",
-            "email": "tannp27@gmail.com"
+            "email": "tannp27@gmail.com",
+            "homepage": "https://tanhongit.com",
+            "role": "Lead"
         }
     ],
     "minimum-stability": "stable",
-    "require": {},
+    "require": {
+        "php": ">=7.3"
+    },
+    "support": {
+        "issues": "https://github.com/tanhongit/laravel-generator/issues"
+    },
     "extra": {
         "laravel": {
             "providers": [
