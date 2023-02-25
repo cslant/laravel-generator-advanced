@@ -1,0 +1,22 @@
+{
+    "name": "tanhongit/laravel-generator",
+    "description": "Laravel Generator",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Tanhongit\\LaravelGenerator\\": "src/",
+            "Tanhongit\\LaravelGenerator\\Package\\": "packages/tanhongit/laravel-generator/src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tan Nguyen",
+            "email": "tannp27@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+
+    }
+}
