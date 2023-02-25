@@ -1,6 +1,6 @@
 <?php
 
-namespace TanHongIT\LaravelGenerator;
+namespace TanHongIT\LaravelGenerator\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

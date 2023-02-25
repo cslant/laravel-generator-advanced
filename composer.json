@@ -15,7 +15,12 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {
-
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TanHongIT\\LaravelGenerator\\LaravelGeneratorServiceProvider"
+            ]
+        }
     }
 }
