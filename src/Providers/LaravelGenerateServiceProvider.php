@@ -23,6 +23,12 @@ class LaravelGenerateServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $viewPath = __DIR__ . '/../resources/views';
+
+        // Include routes
+        $routePath = __DIR__ . '/../routes/web.php';
+        if (file_exists($routePath)) {
+            $this->loadRoutesFrom($routePath);
+        }
     }
 }
