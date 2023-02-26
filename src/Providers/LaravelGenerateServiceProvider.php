@@ -34,8 +34,9 @@ class LaravelGenerateServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
-        //
+        $configPath = __DIR__ . '/../../config/laravel-generator.php';
+        $this->mergeConfigFrom($configPath, 'laravel-generator');
     }
 }

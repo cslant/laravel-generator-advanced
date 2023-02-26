@@ -11,29 +11,6 @@ use ReflectionMethod;
 class DetectPatternController extends Controller
 {
     /**
-     * Get the total number of repositories in the application.
-     *
-     * @return int|null
-     */
-    public function detectRepositoryPattern()
-    {
-        $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(app_path()));
-
-        $repositories = [];
-
-        foreach ($files as $file) {
-            if ($file->isFile() && $file->getExtension() === 'php') {
-                $class = $this->getClassFromFile($file);
-                if ($class !== null && $this->isRepositoryClass($class)) {
-                    $repositories[] = $class->getName();
-                }
-            }
-        }
-
-        return count($repositories);
-    }
-
-    /**
      * @param $file
      *
      * @return ReflectionClass|null
@@ -151,5 +128,27 @@ class DetectPatternController extends Controller
             && $this->dependsOnModels($class);
     }
 
+    /**
+     * Get the total number of repositories in the application.
+     *
+     * @return int|null
+     */
+    public function detectRepositoryPattern()
+    {
+        $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(app_path()));
+
+        $repositories = [];
+
+        foreach ($files as $file) {
+            if ($file->isFile() && $file->getExtension() === 'php') {
+                $class = $this->getClassFromFile($file);
+                if ($class !== null && $this->isRepositoryClass($class)) {
+                    $repositories[] = $class->getName();
+                }
+            }
+        }
+
+        return count($repositories);
+    }
 }
 
