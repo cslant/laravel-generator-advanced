@@ -11,7 +11,12 @@
         "migration",
         "model",
         "controller",
-        "repository"
+        "repository",
+        "request",
+        "resource",
+        "factory",
+        "seeder",
+        "action"
     ],
     "autoload": {
         "psr-4": {
@@ -27,7 +32,6 @@
         }
     ],
     "minimum-stability": "dev",
-    "prefer-stable": true,
     "require": {
         "php": "^8.0"
     },
