@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use TanHongIT\LaravelGenerator\Http\Controllers\LaravelGeneratorController;
 
-Route::group(['namespace' => \TanHongIT\LaravelGenerator\Providers\LaravelGenerateServiceProvider::class], function () {
+Route::namespace('TanHongIT\LaravelGenerator\Http\Controllers')->group(function () {
     Route::prefix('laravel-generator')->group(function () {
-        Route::get('/', \TanHongIT\LaravelGenerator\Http\Controllers\LaravelGeneratorController::class . '@index')->name('laravel-generator.index');
+        Route::get('/', [LaravelGeneratorController::class, 'index'])->name('laravel_generator.index');
     });
 });
