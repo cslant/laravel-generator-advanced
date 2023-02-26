@@ -7,6 +7,8 @@ use TanHongIT\LaravelGenerator\Exceptions\LaravelGeneratorException;
 class ConfigRepository
 {
     /**
+     * Get config
+     *
      * @param string|null $generatorName
      *
      * @return array
@@ -29,6 +31,8 @@ class ConfigRepository
     }
 
     /**
+     * Merge config
+     *
      * @param array $defaults
      * @param array $generatorName
      *
@@ -54,6 +58,8 @@ class ConfigRepository
     }
 
     /**
+     * Check is associative key array
+     *
      * @param mixed $key
      *
      * @return bool
