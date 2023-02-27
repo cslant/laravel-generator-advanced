@@ -1,10 +1,10 @@
 <?php
 
-namespace TanHongIT\LaravelGenerator\Repositories;
+namespace TanHongIT\LaravelGenerator\Helpers;
 
 use TanHongIT\LaravelGenerator\Exceptions\LaravelGeneratorException;
 
-class ConfigRepository
+class ConfigHelper
 {
     /**
      * Get config
