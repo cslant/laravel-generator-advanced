@@ -229,4 +229,3 @@ class DetectController extends Controller
         return $type;
     }
 }
-
