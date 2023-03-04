@@ -16,7 +16,8 @@
         "resource",
         "factory",
         "seeder",
-        "action"
+        "action",
+        "laravel-generator"
     ],
     "autoload": {
         "psr-4": {
@@ -41,7 +42,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "TanHongIT\\LaravelGenerator\\LaravelGeneratorServiceProvider"
+                "LaravelGenerator\\LaravelGeneratorServiceProvider"
             ]
         }
     }
