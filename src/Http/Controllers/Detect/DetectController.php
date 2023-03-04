@@ -3,8 +3,6 @@
 namespace TanHongIT\LaravelGenerator\Http\Controllers\Detect;
 
 use Illuminate\Routing\Controller;
-use RecursiveDirectoryIterator;
-use RecursiveIteratorIterator;
 use ReflectionClass;
 use ReflectionMethod;
 
@@ -17,52 +15,19 @@ class DetectController extends Controller
      */
     public function getClassFromFile($file)
     {
-        $namespace = $class = $implements = null;
-        $tokens = token_get_all(file_get_contents($file));
-        $count = count($tokens);
+        $content = file_get_contents($file);
+        $matches = [];
 
-        for ($i = 2; $i < $count; $i++) {
-            if (isset($tokens[$i - 2][0]) && $tokens[$i - 2][0] === T_NAMESPACE && $tokens[$i - 1][0] === T_WHITESPACE && ($tokens[$i][0] === T_NAME_QUALIFIED || $tokens[$i][0] === T_STRING || $tokens[$i][0] === T_NS_SEPARATOR)) {
-                $namespace = '';
-                for ($j = $i; $j < $count; $j++) {
-                    if ($tokens[$j] === ';') {
-                        break;
-                    }
-                    $namespace .= is_array($tokens[$j]) ? $tokens[$j][1] : $tokens[$j];
-                }
-            }
-
-            $classConditions = isset($tokens[$i - 4][0]) && $tokens[$i - 4][0] === T_CLASS && $tokens[$i - 3][0] === T_WHITESPACE && $tokens[$i - 2][0] === T_STRING && $tokens[$i - 1][0] === T_WHITESPACE;
-            if ($classConditions && $tokens[$i][0] === T_EXTENDS) {
-                $class = $tokens[$i - 2][1];
-                for ($j = $i + 3; $j < $count; $j++) {
-                    if ($tokens [$j] === '{') {
-                        break;
-                    } elseif ($tokens[$j] === ',') {
-                        $implements [] = $tokens[$j + 2][1];
-                    }
-                }
-            } elseif ($classConditions && $tokens[$i][0] === T_IMPLEMENTS) {
-                $class = $tokens[$i - 2][1];
-                for ($j = $i + 2; $j < $count; $j++) {
-                    if ($tokens[$j] === '{') {
-                        break;
-                    } elseif ($tokens[$j] === ',') {
-                        $implements [] = $tokens[$j + 2][1];
-                    }
-                }
-            } elseif (isset($tokens[$i - 2][0]) && $tokens[$i - 2][0] === T_CLASS && $tokens[$i - 1][0] === T_WHITESPACE && $tokens[$i][0] === T_STRING) {
-                $class = $tokens[$i][1];
-            }
+        // Match namespace and class name
+        preg_match('/namespace\s+(.*?);.*?class\s+(\w+)/s', $content, $matches);
+        if (!isset($matches[1]) || !isset($matches[2])) {
+            return null;
         }
 
-        if ($class !== null) {
-            $class = $namespace . '\\' . $class;
+        $namespace = $matches[1];
+        $class = $namespace . '\\' . $matches[2];
 
-            return class_exists($class) ? new ReflectionClass($class) : null;
-        }
-
-        return null;
+        return class_exists($class) ? new ReflectionClass($class) : null;
     }
 
     /**
