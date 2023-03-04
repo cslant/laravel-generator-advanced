@@ -16,8 +16,3 @@ checks:
     fix_line_ending: true
     fix_identation_4spaces: true
     fix_doc_comments: true
-
-build:
-  env:
-    PKG_CONFIG_PATH: /usr/local/openssl/lib/pkgconfig
-    LD_LIBRARY_PATH: /usr/local/openssl/lib
