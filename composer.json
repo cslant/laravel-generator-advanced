@@ -40,12 +40,5 @@
     },
     "support": {
         "issues": "https://github.com/tanhongit/laravel-generator/issues"
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "TanHongIT\\LaravelGenerator\\Providers\\LaravelGeneratorServiceProvider"
-            ]
-        }
     }
 }

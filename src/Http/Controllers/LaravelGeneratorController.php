@@ -7,7 +7,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use TanHongIT\LaravelGenerator\Http\Controllers\Detect\DetectPatternController;
+use TanHongIT\LaravelGenerator\Http\Controllers\Detect\DetectController;
 
 class LaravelGeneratorController extends Controller
 {
@@ -18,8 +18,8 @@ class LaravelGeneratorController extends Controller
      */
     public function index(Request $request)
     {
-        $detectPatternController = new DetectPatternController();
-        $repositories = $detectPatternController->detectRepositoryPattern();
+        $detectPatternController = new DetectController();
+        $repositories = $detectPatternController->detect();
 
         return view('laravel-generator::index');
     }
