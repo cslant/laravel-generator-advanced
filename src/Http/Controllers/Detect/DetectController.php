@@ -3,6 +3,8 @@
 namespace TanHongIT\LaravelGenerator\Http\Controllers\Detect;
 
 use Illuminate\Routing\Controller;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
 use ReflectionClass;
 use ReflectionMethod;
 
@@ -182,10 +184,15 @@ class DetectController extends Controller
      */
     public function detect()
     {
-        $files = glob(app_path() . '/**/*.php');
+        $recursiveDirectoryIterator = new RecursiveDirectoryIterator(app_path());
+        $files = new RecursiveIteratorIterator($recursiveDirectoryIterator);
         $type = [];
 
         foreach ($files as $file) {
+            if (!$file->isFile() || $file->getExtension() !== 'php') {
+                continue;
+            }
+
             $class = $this->getClassFromFile($file);
             if ($class !== null) {
                 $type[] = $this->getClassType($class);
