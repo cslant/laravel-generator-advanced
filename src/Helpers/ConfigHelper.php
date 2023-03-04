@@ -23,7 +23,7 @@ class ConfigHelper
         $defaults = config('laravel-generator.defaults', []);
         $generators = config('laravel-generator.generators', []);
 
-        if (! isset($generators[$generatorName])) {
+        if (!isset($generators[$generatorName])) {
             throw new LaravelGeneratorException('Generator name not found');
         }
 
