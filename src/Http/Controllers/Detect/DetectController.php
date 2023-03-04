@@ -217,7 +217,7 @@ class DetectController extends Controller
      */
     public function detect()
     {
-        $files = glob(app_path().'/**/*.php');
+        $files = glob(app_path() . '/**/*.php');
         $type = [];
 
         foreach ($files as $file) {
