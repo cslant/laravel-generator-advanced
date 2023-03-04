@@ -42,7 +42,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "LaravelGenerator\\LaravelGeneratorServiceProvider"
+                "TanHongIT\\LaravelGenerator\\Providers\\LaravelGeneratorServiceProvider"
             ]
         }
     }
