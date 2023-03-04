@@ -125,6 +125,9 @@ class DetectController extends Controller
     }
 
     /**
+     * Check if the class is a service class
+     * A service class must have a name ending with "Service" or "EloquentService"
+     *
      * @param ReflectionClass $class
      *
      * @return bool
@@ -135,6 +138,11 @@ class DetectController extends Controller
     }
 
     /**
+     * Check if the class is a controller class
+     * A controller class must have a name ending with "Controller" or "EloquentController"
+     * and implement the CRUD methods
+     * and have a dependency on a model
+     *
      * @param ReflectionClass $class
      *
      * @return bool
@@ -145,6 +153,9 @@ class DetectController extends Controller
     }
 
     /**
+     * Check if the class is an action class
+     * An action class must have a name ending with "Action" or "EloquentAction"
+     *
      * @param ReflectionClass $class
      *
      * @return bool
@@ -155,6 +166,9 @@ class DetectController extends Controller
     }
 
     /**
+     * Check if the class is a class of the given type
+     * A class of the given type must have a name ending with the given type or "Eloquent" + the given type
+     *
      * @param ReflectionClass $class
      * @param $type
      *
@@ -169,6 +183,13 @@ class DetectController extends Controller
             && $this->dependsOnModels($class);
     }
 
+    /**
+     * Get the type of the given class
+     *
+     * @param ReflectionClass $class
+     *
+     * @return string
+     */
     protected function getClassType(ReflectionClass $class)
     {
         if ($this->isRepositoryClass($class)) {
@@ -187,7 +208,7 @@ class DetectController extends Controller
     }
 
     /**
-     * Get the total number of repositories in the application.
+     * Get the type of all classes in the app folder
      *
      * @return array[]
      */
