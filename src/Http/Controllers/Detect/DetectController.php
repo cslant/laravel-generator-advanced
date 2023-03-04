@@ -186,11 +186,9 @@ class DetectController extends Controller
         $type = [];
 
         foreach ($files as $file) {
-            if (is_file($file)) {
-                $class = $this->getClassFromFile($file);
-                if ($class !== null) {
-                    $type[] = $this->getClassType($class);
-                }
+            $class = $this->getClassFromFile($file);
+            if ($class !== null) {
+                $type[] = $this->getClassType($class);
             }
         }
 
