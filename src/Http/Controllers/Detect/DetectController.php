@@ -98,11 +98,9 @@ class DetectController extends Controller
             'delete'
         ];
 
-        foreach ($crudMethods as $method) {
-            foreach ($methods as $m) {
-                if (strtolower($m->getName()) === $method) {
-                    return true;
-                }
+        foreach ($methods as $method) {
+            if (in_array($method->name, $crudMethods)) {
+                return true;
             }
         }
 
@@ -192,19 +190,24 @@ class DetectController extends Controller
      */
     protected function getClassType(ReflectionClass $class)
     {
-        if ($this->isRepositoryClass($class)) {
-            return 'repository';
+        $type = 'other';
+
+        switch (true) {
+            case $this->isRepositoryClass($class):
+                $type = 'repository';
+                break;
+            case $this->isServiceClass($class):
+                $type = 'service';
+                break;
+            case $this->isControllerClass($class):
+                $type = 'controller';
+                break;
+            case $this->isActionClass($class):
+                $type = 'action';
+                break;
         }
-        if ($this->isServiceClass($class)) {
-            return 'service';
-        }
-        if ($this->isControllerClass($class)) {
-            return 'controller';
-        }
-        if ($this->isActionClass($class)) {
-            return 'action';
-        }
-        return 'other';
+
+        return $type;
     }
 
     /**
@@ -214,11 +217,11 @@ class DetectController extends Controller
      */
     public function detect()
     {
-        $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(app_path()));
+        $files = glob(app_path().'/**/*.php');
         $type = [];
 
         foreach ($files as $file) {
-            if ($file->isFile() && $file->getExtension() === 'php') {
+            if (is_file($file)) {
                 $class = $this->getClassFromFile($file);
                 if ($class !== null) {
                     $type[] = $this->getClassType($class);

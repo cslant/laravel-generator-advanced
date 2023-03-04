@@ -20,7 +20,7 @@ class LaravelGeneratorController extends Controller
     {
         $detectPatternController = new DetectController();
         $repositories = $detectPatternController->detect();
-
+dd($repositories);
         return view('laravel-generator::index');
     }
 }
