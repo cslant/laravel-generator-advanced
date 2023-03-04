@@ -8,7 +8,7 @@ use RecursiveIteratorIterator;
 use ReflectionClass;
 use ReflectionMethod;
 
-class DetectPatternController extends Controller
+class DetectController extends Controller
 {
     /**
      * @param $file
@@ -22,14 +22,13 @@ class DetectPatternController extends Controller
         $count = count($tokens);
 
         for ($i = 2; $i < $count; $i++) {
-            if (isset($tokens[$i - 2][0]) && $tokens[$i - 2][0] === T_NAMESPACE && $tokens[$i - 1][0] === T_WHITESPACE && $tokens[$i][0] === T_STRING) {
+            if (isset($tokens[$i - 2][0]) && $tokens[$i - 2][0] === T_NAMESPACE && $tokens[$i - 1][0] === T_WHITESPACE && ($tokens[$i][0] === T_NAME_QUALIFIED || $tokens[$i][0] === T_STRING || $tokens[$i][0] === T_NS_SEPARATOR)) {
                 $namespace = '';
                 for ($j = $i; $j < $count; $j++) {
-                    if ($tokens[$j][0] === T_STRING) {
-                        $namespace .= '\\' . $tokens[$j][1];
-                    } elseif ($tokens[$j] === '{' || $tokens[$j] === ';') {
+                    if ($tokens[$j] === ';') {
                         break;
                     }
+                    $namespace .= is_array($tokens[$j]) ? $tokens[$j][1] : $tokens[$j];
                 }
             }
 
@@ -122,33 +121,91 @@ class DetectPatternController extends Controller
      */
     public function isRepositoryClass(ReflectionClass $class)
     {
-        return preg_match('/Repository$/', $class->getName()) === 1
-            || preg_match('/EloquentRepository$/', $class->getName()) === 1
+        return $this->checkClassType($class, 'repository');
+    }
+
+    /**
+     * @param ReflectionClass $class
+     *
+     * @return bool
+     */
+    public function isServiceClass(ReflectionClass $class)
+    {
+        return $this->checkClassType($class, 'service');
+    }
+
+    /**
+     * @param ReflectionClass $class
+     *
+     * @return bool
+     */
+    public function isControllerClass(ReflectionClass $class)
+    {
+        return $this->checkClassType($class, 'controller');
+    }
+
+    /**
+     * @param ReflectionClass $class
+     *
+     * @return bool
+     */
+    public function isActionClass(ReflectionClass $class)
+    {
+        return $this->checkClassType($class, 'action');
+    }
+
+    /**
+     * @param ReflectionClass $class
+     * @param $type
+     *
+     * @return bool
+     */
+    protected function checkClassType(ReflectionClass $class, $type)
+    {
+        $type = ucfirst($type);
+        return preg_match('/' . $type . '$/', $class->getName()) === 1
+            || preg_match('/Eloquent' . $type . '$/', $class->getName()) === 1
             && $this->implementsCrudMethods($class)
             && $this->dependsOnModels($class);
+    }
+
+    protected function getClassType(ReflectionClass $class)
+    {
+        if ($this->isRepositoryClass($class)) {
+            return 'repository';
+        }
+        if ($this->isServiceClass($class)) {
+            return 'service';
+        }
+        if ($this->isControllerClass($class)) {
+            return 'controller';
+        }
+        if ($this->isActionClass($class)) {
+            return 'action';
+        }
+        return 'other';
     }
 
     /**
      * Get the total number of repositories in the application.
      *
-     * @return int|null
+     * @return array[]
      */
-    public function detectRepositoryPattern()
+    public function detect()
     {
         $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator(app_path()));
-
-        $repositories = [];
+        $type = [];
 
         foreach ($files as $file) {
             if ($file->isFile() && $file->getExtension() === 'php') {
                 $class = $this->getClassFromFile($file);
-                if ($class !== null && $this->isRepositoryClass($class)) {
-                    $repositories[] = $class->getName();
+                if ($class !== null) {
+                    $type[] = $this->getClassType($class);
                 }
             }
         }
 
-        return count($repositories);
+        return $type;
     }
 }
 
