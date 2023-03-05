@@ -9,7 +9,7 @@ This package is used to generate models, controllers, views, routes, migrations,
 
 ## Technology
 
-- PHP ^8.0
+- PHP ^7.3|^8.0
 - Laravel Framework 8.x, 9.x, 10.x
 - Composer
 
