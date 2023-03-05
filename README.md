@@ -5,6 +5,7 @@ This package is used to generate models, controllers, views, routes, migrations,
 [![Latest Version](https://img.shields.io/github/release/tanhongit/laravel-generator.svg?style=flat-square)](https://github.com/tanhongit/laravel-generator/releases)
 [![Total Downloads](https://img.shields.io/packagist/dt/tanhongit/laravel-generator.svg?style=flat-square)](https://packagist.org/packages/tanhongit/laravel-generator)
 [![StyleCI](https://styleci.io/repos/605697295/shield)](https://styleci.io/repos/605697295)
+[![Quality Score](https://img.shields.io/scrutinizer/g/tanhongit/laravel-generator.svg?style=flat-square)](https://scrutinizer-ci.com/g/tanhongit/laravel-generator)
 [![Maintainability](https://api.codeclimate.com/v1/badges/231c123bfa276fd1ac3c/maintainability)](https://codeclimate.com/github/tanhongit/laravel-generator/maintainability)
 
 ## Technology
