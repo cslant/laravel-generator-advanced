@@ -28,20 +28,20 @@ if (! function_exists('laravel_generator_dist_path')) {
     /**
      * Returns laravel-generator composer dist path.
      *
-     * @param $asset string
+     * @param  string|null  $asset  string
      *
      * @return string
      *
      * @throws LaravelGeneratorException
      */
-    function laravel_generator_dist_path(string $asset): string
+    function laravel_generator_dist_path(string $asset = null): string
     {
         $allowed_files = [
             'favicon-16x16.png',
             'favicon-32x32.png',
         ];
 
-        $defaultPath = 'vendor/tanhongit/laravel-generator-api/dist/';
+        $defaultPath = config('laravel-generator.defaults.paths.ui_package_path') . '/dist/';
         $path = base_path(config('laravel-generator.paths.laravel_generator_assets_path', $defaultPath));
 
         if (!$asset) {

@@ -17,7 +17,12 @@ return [
         'paths' => [
             'views' => base_path('resources/views/vendor/laravel-generator'),
 
-            'laravel_generator_assets_path' => env('TH_LARAVEL_GENERATOR_ASSETS_PATH', 'vendor/tanhongit/laravel-generator-api/assets'),
+            'ui_package_path' => 'vendor/tanhongit/laravel-generator-ui',
+
+            'assets_folder' => 'src/',
+
+            'laravel_generator_assets_path' => env('TH_LARAVEL_GENERATOR_ASSETS_PATH',
+                config('laravel-generator.defaults.paths.ui_package_path') . '/' . config('laravel-generator.defaults.paths.assets_folder')),
         ],
     ],
 ];
