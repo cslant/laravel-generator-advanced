@@ -6,6 +6,9 @@ This package is used to generate models, controllers, views, routes, migrations,
 [![Total Downloads](https://img.shields.io/packagist/dt/tanhongit/laravel-generator.svg?style=flat-square)](https://packagist.org/packages/tanhongit/laravel-generator)
 [![StyleCI](https://styleci.io/repos/605697295/shield)](https://styleci.io/repos/605697295)
 [![Quality Score](https://img.shields.io/scrutinizer/g/tanhongit/laravel-generator.svg?style=flat-square)](https://scrutinizer-ci.com/g/tanhongit/laravel-generator)
+[![Build Status](https://scrutinizer-ci.com/g/tanhongit/laravel-generator/badges/build.png?b=master)](https://scrutinizer-ci.com/g/tanhongit/laravel-generator/build-status/master)
+[![Code Intelligence Status](https://scrutinizer-ci.com/g/tanhongit/laravel-generator/badges/code-intelligence.svg?b=master)](https://scrutinizer-ci.com/code-intelligence)
+[![Code Coverage](https://scrutinizer-ci.com/g/tanhongit/laravel-generator/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/tanhongit/laravel-generator/?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/231c123bfa276fd1ac3c/maintainability)](https://codeclimate.com/github/tanhongit/laravel-generator/maintainability)
 
 ## Technology
