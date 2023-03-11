@@ -43,7 +43,7 @@ if (!function_exists('laravel_generator_asset')) {
 
         $useAbsolutePath = config('laravel-generator.defaults.paths.use_absolute_path', true);
 
-        return route('laravel_generator_asset', ['asset' => $asset], $useAbsolutePath) . '?v=' . filemtime($file);
+        return route('laravel_generator.asset', ['asset' => $asset], $useAbsolutePath) . '?v=' . filemtime($file);
     }
 }
 

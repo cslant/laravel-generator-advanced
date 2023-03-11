@@ -6,6 +6,7 @@ const ASSETS_FOLDER = 'src/';
 
 return [
     'default' => 'default',
+
     'generators' => [
         'default' => [
             'path' => 'app',
