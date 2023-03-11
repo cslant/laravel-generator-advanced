@@ -13,6 +13,8 @@ Route::namespace('TanHongIT\LaravelGenerator\Http\Controllers')->group(function 
     Route::prefix($generatorConfig['routes']['tool'])->group(function (Router $router) {
         Route::get('/', [LaravelGeneratorController::class, 'index'])->name('laravel_generator.index');
 
-        Route::get('asset/{asset}', [AssetController::class, 'index'])->name('laravel_generator.asset');
+        Route::get('asset/{asset}', [AssetController::class, 'index'])
+            ->name('laravel_generator.asset')
+            ->where('asset', '.*');
     });
 });
