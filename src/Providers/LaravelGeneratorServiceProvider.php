@@ -5,7 +5,7 @@ namespace TanHongIT\LaravelGenerator\Providers;
 use Illuminate\Support\ServiceProvider;
 use TanHongIT\LaravelGenerator\Helpers\ConfigHelper;
 
-class LaravelGenerateServiceProvider extends ServiceProvider
+class LaravelGeneratorServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap services.
