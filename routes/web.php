@@ -3,6 +3,7 @@
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use TanHongIT\LaravelGenerator\Helpers\ConfigHelper;
+use TanHongIT\LaravelGenerator\Http\Controllers\Asset\AssetController;
 use TanHongIT\LaravelGenerator\Http\Controllers\LaravelGeneratorController;
 
 Route::namespace('TanHongIT\LaravelGenerator\Http\Controllers')->group(function () {
@@ -11,5 +12,7 @@ Route::namespace('TanHongIT\LaravelGenerator\Http\Controllers')->group(function 
 
     Route::prefix($generatorConfig['routes']['tool'])->group(function (Router $router) {
         Route::get('/', [LaravelGeneratorController::class, 'index'])->name('laravel_generator.index');
+
+        Route::get('asset/{asset}', [AssetController::class, 'index'])->name('laravel_generator.asset');
     });
 });

@@ -1,7 +1,12 @@
 <?php
 
+const UI_PACKAGE_PATH = 'vendor/tanhongit/laravel-generator-ui';
+
+const ASSETS_FOLDER = 'src/';
+
 return [
     'default' => 'default',
+
     'generators' => [
         'default' => [
             'path' => 'app',
@@ -15,15 +20,20 @@ return [
 
     'defaults' => [
         'paths' => [
+            /*
+             * Edit to include full URL in ui for assets
+             */
+            'use_absolute_path' => env('TH_LARAVEL_GENERATOR_USE_ABSOLUTE_PATH', true),
+
             'views' => base_path('resources/views/vendor/laravel-generator'),
 
-            'ui_package_path' => 'vendor/tanhongit/laravel-generator-ui',
+            'ui_package_path' => UI_PACKAGE_PATH,
 
-            'assets_folder' => 'src/',
+            'assets_folder' => ASSETS_FOLDER,
 
             'laravel_generator_assets_path' => env(
                 'TH_LARAVEL_GENERATOR_ASSETS_PATH',
-                config('laravel-generator.defaults.paths.ui_package_path') . '/' . config('laravel-generator.defaults.paths.assets_folder')
+                UI_PACKAGE_PATH . '/' . ASSETS_FOLDER
             ),
         ],
     ],
