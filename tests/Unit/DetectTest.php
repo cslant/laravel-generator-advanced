@@ -29,6 +29,8 @@ class DetectTest extends TestCase
     }
 
     /**
+     * Test detect pattern function is return the correct value
+     *
      * @return void
      */
     public function testDetectPattern(): void
