@@ -33,6 +33,12 @@ class LaravelGenerateServiceProvider extends ServiceProvider
         if (file_exists($routePath)) {
             $this->loadRoutesFrom($routePath);
         }
+
+        // Load package helpers file
+        $helpersPath = __DIR__ . '/../Support/Helper.php';
+        if (file_exists($helpersPath)) {
+            require_once $helpersPath;
+        }
     }
 
     /**

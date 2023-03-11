@@ -21,8 +21,10 @@ return [
 
             'assets_folder' => 'src/',
 
-            'laravel_generator_assets_path' => env('TH_LARAVEL_GENERATOR_ASSETS_PATH',
-                config('laravel-generator.defaults.paths.ui_package_path') . '/' . config('laravel-generator.defaults.paths.assets_folder')),
+            'laravel_generator_assets_path' => env(
+                'TH_LARAVEL_GENERATOR_ASSETS_PATH',
+                config('laravel-generator.defaults.paths.ui_package_path') . '/' . config('laravel-generator.defaults.paths.assets_folder')
+            ),
         ],
     ],
 ];
