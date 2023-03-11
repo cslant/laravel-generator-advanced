@@ -35,7 +35,7 @@ class LaravelGenerateServiceProvider extends ServiceProvider
         }
 
         // Load package helpers file
-        $helpersPath = __DIR__ . '/../Support/Helper.php';
+        $helpersPath = __DIR__ . '/../../common/helpers.php';
         if (file_exists($helpersPath)) {
             require_once $helpersPath;
         }

@@ -2,7 +2,7 @@
 
 const UI_PACKAGE_PATH = 'vendor/tanhongit/laravel-generator-ui';
 
-const ASSETS_FOLDER = 'src/';
+const ASSETS_FOLDER = 'dist/';
 
 return [
     'default' => 'default',
