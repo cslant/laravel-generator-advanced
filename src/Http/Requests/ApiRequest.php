@@ -19,7 +19,7 @@ abstract class ApiRequest extends FormRequest
      *
      * @return void
      */
-    function failedValidation(Validator $validator): void
+    public function failedValidation(Validator $validator): void
     {
         throw new HttpResponseException(
             response()->json([
