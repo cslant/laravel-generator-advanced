@@ -18,6 +18,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 
+.phpunit.cache
 .phpunit.result.cache
 /storage/.license
 /storage/fonts
