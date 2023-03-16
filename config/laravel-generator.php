@@ -7,6 +7,8 @@ const ASSETS_FOLDER = 'dist/';
 return [
     'default' => 'default',
 
+    'app_name' => 'Laravel Generator',
+
     'generators' => [
         'default' => [
             'path' => 'app',
