@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="#">
     <link rel="icon" type="image/png" href="#">
     <title>
-        @yield('title', config('laravel-generator.app_name', 'Laravel Generator'))
+        @yield('title', config('laravel-generator.app_name', __('laravel-generator::generator.app_name')))
     </title>
     <!-- Fonts and icons -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"/>

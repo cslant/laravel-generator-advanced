@@ -39,6 +39,9 @@ class LaravelGeneratorServiceProvider extends ServiceProvider
         if (file_exists($helpersPath)) {
             require_once $helpersPath;
         }
+
+        // Load language files
+        $this->loadTranslationsFrom(__DIR__ . '/../../lang', 'laravel-generator');
     }
 
     /**
