@@ -51,8 +51,6 @@ class LaravelGeneratorServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->register(\TanHongIT\LaravelGenerator\Providers\LaravelGeneratorServiceProvider::class);
-
         $configPath = __DIR__ . '/../../config/laravel-generator.php';
         $this->mergeConfigFrom($configPath, 'laravel-generator');
 

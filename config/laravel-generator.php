@@ -1,9 +1,5 @@
 <?php
 
-const UI_PACKAGE_PATH = 'vendor/tanhongit/laravel-generator-ui';
-
-const ASSETS_FOLDER = 'dist/';
-
 return [
     'default' => 'default',
 
@@ -29,13 +25,13 @@ return [
 
             'views' => base_path('resources/views/vendor/laravel-generator'),
 
-            'ui_package_path' => UI_PACKAGE_PATH,
+            'ui_package_path' => 'vendor/tanhongit/laravel-generator-ui',
 
-            'assets_folder' => ASSETS_FOLDER,
+            'assets_folder' => 'dist/',
 
             'laravel_generator_assets_path' => env(
                 'TH_LARAVEL_GENERATOR_ASSETS_PATH',
-                UI_PACKAGE_PATH . '/' . ASSETS_FOLDER
+                'vendor/tanhongit/laravel-generator-ui/dist/'
             ),
         ],
     ],
