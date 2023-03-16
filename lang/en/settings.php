@@ -12,5 +12,6 @@ return [
         'dark' => 'Dark',
         'light' => 'Light',
         'transparent' => 'Transparent',
+        'dashboard' => 'Dashboard',
     ],
 ];

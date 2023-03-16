@@ -12,5 +12,6 @@ return [
         'dark' => 'Tối',
         'light' => 'Sáng',
         'transparent' => 'Trong suốt',
+        'dashboard' => 'Bảng điều khiển',
     ],
 ];

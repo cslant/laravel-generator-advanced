@@ -44,7 +44,7 @@
             <p class="text-sm d-xl-none d-block mt-2">{{ __('laravel-generator::settings.description') }}</p>
             <!-- Navbar Fixed -->
             <div class="mt-3 d-flex">
-                <h6 class="mb-0">Navbar Fixed</h6>
+                <h6 class="mb-0">{{ __('laravel-generator::settings.sidebar.nav_fix') }}</h6>
                 <div class="form-check form-switch ps-0 ms-auto my-auto">
                     <label for="navbarFixed"></label><input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
                 </div>
