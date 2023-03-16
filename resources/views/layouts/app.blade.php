@@ -28,6 +28,10 @@
         @include('laravel-generator::shared.navbar')
         <!-- End Navbar -->
 
-        @yield('laravel-content')
+        @yield('laravel-generator-content')
     </div>
+
+    @include('laravel-generator::shared.configurator_settings')
+
+    @include('laravel-generator::shared.footer')
 </body>
