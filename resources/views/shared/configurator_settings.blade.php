@@ -5,8 +5,8 @@
     <div class="card shadow-lg">
         <div class="card-header pb-0 pt-3">
             <div class="float-start">
-                <h5 class="mt-3 mb-0">Material UI Configurator</h5>
-                <p>See our dashboard options.</p>
+                <h5 class="mt-3 mb-0">{{ __('laravel-generator::settings.title') }}</h5>
+                <p>{{ __('laravel-generator::settings.see_options') }}</p>
             </div>
             <div class="float-end mt-4">
                 <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
@@ -19,7 +19,7 @@
         <div class="card-body pt-sm-3 pt-0">
             <!-- Sidebar Backgrounds -->
             <div>
-                <h6 class="mb-0">Sidebar Colors</h6>
+                <h6 class="mb-0">{{ __('laravel-generator::settings.sidebar.color') }}</h6>
             </div>
             <a href="javascript:void(0)" class="switch-trigger background-color">
                 <div class="badge-colors my-2 text-start">
@@ -33,7 +33,7 @@
             </a>
             <!-- Sidenav Type -->
             <div class="mt-3">
-                <h6 class="mb-0">Sidenav Type</h6>
+                <h6 class="mb-0">{{ __('laravel-generator::settings.sidebar.nav_type') }}</h6>
                 <p class="text-sm">Choose between 2 different sidenav types.</p>
             </div>
             <div class="d-flex">

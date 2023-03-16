@@ -1,5 +1,5 @@
 @extends('laravel-generator::layouts.app')
 
-@section('laravel-content')
+@section('laravel-generator-content')
 
 @endsection
