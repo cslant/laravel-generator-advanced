@@ -42,6 +42,11 @@ class LaravelGeneratorServiceProvider extends ServiceProvider
 
         // Load language files
         $this->loadTranslationsFrom(__DIR__ . '/../../lang', 'laravel-generator');
+
+        // Publish language files
+        $this->publishes([
+            __DIR__ . '/../../lang' => resource_path('lang/vendor/laravel-generator'),
+        ], 'lang');
     }
 
     /**
