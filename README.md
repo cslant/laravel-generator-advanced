@@ -16,9 +16,39 @@ This package is used to generate models, controllers, views, routes, migrations,
 
 ## Installation
 
+You can install the package with [Composer](https://getcomposer.org/) using the following command:
+
 ```bash
 composer require tanhongit/laravel-generator
 ```
+
+## Publish the config file, views, and language files
+
+If you want to change the default configuration, the views, or the language files, you can publish them with the following command:
+
+```bash
+ php artisan vendor:publish --provider="TanHongIT\LaravelGenerator\Providers\LaravelGeneratorServiceProvider" 
+```
+
+If you have run the above command, you will see the following files in your project:
+
+- `config/laravel-generator.php`
+- `resources/views/vendor/laravel-generator`
+
+---
+
+Also, you can publish only the config file with the following command:
+
+```bash
+ php artisan vendor:publish --provider="TanHongIT\LaravelGenerator\Providers\LaravelGeneratorServiceProvider" --tag="config" 
+```
+
+Similarly, you can publish only the views with the following command:
+
+```bash
+ php artisan vendor:publish --provider="TanHongIT\LaravelGenerator\Providers\LaravelGeneratorServiceProvider" --tag="views" 
+```
+
 
 ## License
 
