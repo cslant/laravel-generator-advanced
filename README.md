@@ -1,4 +1,4 @@
-# Welcome to Laravel Generator by TanHongIT
+# Welcome to Laravel Generator
 
 This package is used to generate models, controllers, views, routes, migrations, seeders, factories, requests, and more for Laravel.
 

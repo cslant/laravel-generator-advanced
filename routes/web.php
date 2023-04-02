@@ -4,6 +4,7 @@ use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use TanHongIT\LaravelGenerator\Helpers\ConfigHelper;
 use TanHongIT\LaravelGenerator\Http\Controllers\Asset\AssetController;
+use TanHongIT\LaravelGenerator\Http\Controllers\Generator\RepositoryGeneratorController;
 use TanHongIT\LaravelGenerator\Http\Controllers\LaravelGeneratorController;
 
 Route::namespace('TanHongIT\LaravelGenerator\Http\Controllers')->group(function () {
@@ -16,5 +17,8 @@ Route::namespace('TanHongIT\LaravelGenerator\Http\Controllers')->group(function 
         Route::get('asset/{asset}', [AssetController::class, 'index'])
             ->name('laravel_generator.asset')
             ->where('asset', '.*');
+
+        Route::get('repository', [RepositoryGeneratorController::class, 'index'])
+            ->name('laravel_generator.repository.index');
     });
 });
