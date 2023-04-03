@@ -44,9 +44,9 @@ class RepositoryGeneratorController extends GeneratorController
     {
         $filePath = app_path("Repositories/{$fileName}");
 
-       if(!is_dir(dirname($filePath))) {
-           mkdir(dirname($filePath), 0777, true);
-       }
+        if (!is_dir(dirname($filePath))) {
+            mkdir(dirname($filePath), 0777, true);
+        }
 
         file_put_contents($filePath, $fileContent);
     }
