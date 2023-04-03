@@ -1,6 +1,6 @@
 <?php
 
-use TanHongIT\LaravelGenerator\Exceptions\LaravelGeneratorException;
+use Lbil\LaravelGenerator\Exceptions\LaravelGeneratorException;
 
 if (!function_exists('laravel_generator_dist_path')) {
     /**
