@@ -1,8 +1,8 @@
 <?php
 
-namespace TanHongIT\LaravelGenerator\Http\Requests\Generator;
+namespace Lbil\LaravelGenerator\Http\Requests\Generator;
 
-use TanHongIT\LaravelGenerator\Http\Requests\ApiRequest;
+use Lbil\LaravelGenerator\Http\Requests\ApiRequest;
 
 class RepositoryGeneratorRequest extends ApiRequest
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace TanHongIT\LaravelGenerator\Helpers;
+namespace Lbil\LaravelGenerator\Helpers;
 
-use TanHongIT\LaravelGenerator\Exceptions\LaravelGeneratorException;
+use Lbil\LaravelGenerator\Exceptions\LaravelGeneratorException;
 
 class ConfigHelper
 {

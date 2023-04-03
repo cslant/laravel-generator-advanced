@@ -1,6 +1,6 @@
 <?php
 
-namespace TanHongIT\LaravelGenerator\Http\Controllers\Detect;
+namespace Lbil\LaravelGenerator\Http\Controllers\Detect;
 
 use Illuminate\Routing\Controller;
 use RecursiveDirectoryIterator;

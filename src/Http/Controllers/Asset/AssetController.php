@@ -1,6 +1,6 @@
 <?php
 
-namespace TanHongIT\LaravelGenerator\Http\Controllers\Asset;
+namespace Lbil\LaravelGenerator\Http\Controllers\Asset;
 
 use DateTime;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;

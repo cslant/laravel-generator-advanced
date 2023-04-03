@@ -1,10 +1,10 @@
 <?php
 
-namespace TanHongIT\LaravelGenerator\Tests\Unit;
+namespace Lbil\LaravelGenerator\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
 use Mockery;
-use TanHongIT\LaravelGenerator\Http\Controllers\Detect\DetectController;
+use Lbil\LaravelGenerator\Http\Controllers\Detect\DetectController;
 
 class DetectTest extends TestCase
 {
