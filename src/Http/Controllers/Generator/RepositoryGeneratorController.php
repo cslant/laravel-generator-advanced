@@ -1,10 +1,10 @@
 <?php
 
-namespace TanHongIT\LaravelGenerator\Http\Controllers\Generator;
+namespace Lbil\LaravelGenerator\Http\Controllers\Generator;
 
 use Str;
-use TanHongIT\LaravelGenerator\Http\Controllers\Detect\DetectController;
-use TanHongIT\LaravelGenerator\Http\Requests\Generator\RepositoryGeneratorRequest;
+use Lbil\LaravelGenerator\Http\Controllers\Detect\DetectController;
+use Lbil\LaravelGenerator\Http\Requests\Generator\RepositoryGeneratorRequest;
 
 class RepositoryGeneratorController extends GeneratorController
 {

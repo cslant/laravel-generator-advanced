@@ -1,6 +1,6 @@
 <?php
 
-namespace TanHongIT\LaravelGenerator\Http\Requests;
+namespace Lbil\LaravelGenerator\Http\Requests;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 /**
  * Class ApiRequest.
- * @package TanHongIT\LaravelGenerator\Http\Requests
+ * @package Lbil\LaravelGenerator\Http\Requests
  *
  * This class is used to handle the validation error response. It will return the error message in JSON format.
  */
