@@ -13,7 +13,7 @@
         </include>
     </coverage>
     <testsuites>
-        <testsuite name="TanHongIT LaravelGenerator Test Suite">
+        <testsuite name="LbilTech LaravelGenerator Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
