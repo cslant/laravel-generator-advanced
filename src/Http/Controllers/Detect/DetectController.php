@@ -27,13 +27,13 @@ class DetectController extends Controller
         }
 
         $namespace = $matches[1];
-        $class = $namespace . '\\' . $matches[2];
+        $class = $namespace.'\\'.$matches[2];
 
         return class_exists($class) ? new ReflectionClass($class) : null;
     }
 
     /**
-     * @param ReflectionClass $class
+     * @param  ReflectionClass  $class
      *
      * @return bool
      */
@@ -51,7 +51,7 @@ class DetectController extends Controller
     /**
      * Check if the class implements the CRUD methods
      *
-     * @param ReflectionClass $class
+     * @param  ReflectionClass  $class
      *
      * @return bool
      */
@@ -80,7 +80,7 @@ class DetectController extends Controller
      * and implement the CRUD methods
      * and have a dependency on a model
      *
-     * @param ReflectionClass $class
+     * @param  ReflectionClass  $class
      *
      * @return bool
      */
@@ -93,7 +93,7 @@ class DetectController extends Controller
      * Check if the class is a service class
      * A service class must have a name ending with "Service" or "EloquentService"
      *
-     * @param ReflectionClass $class
+     * @param  ReflectionClass  $class
      *
      * @return bool
      */
@@ -108,7 +108,7 @@ class DetectController extends Controller
      * and implement the CRUD methods
      * and have a dependency on a model
      *
-     * @param ReflectionClass $class
+     * @param  ReflectionClass  $class
      *
      * @return bool
      */
@@ -121,7 +121,7 @@ class DetectController extends Controller
      * Check if the class is an action class
      * An action class must have a name ending with "Action" or "EloquentAction"
      *
-     * @param ReflectionClass $class
+     * @param  ReflectionClass  $class
      *
      * @return bool
      */
@@ -134,7 +134,7 @@ class DetectController extends Controller
      * Check if the class is a class of the given type
      * A class of the given type must have a name ending with the given type or "Eloquent" + the given type
      *
-     * @param ReflectionClass $class
+     * @param  ReflectionClass  $class
      * @param $type
      *
      * @return bool
@@ -142,8 +142,8 @@ class DetectController extends Controller
     protected function checkClassType(ReflectionClass $class, $type)
     {
         $type = ucfirst($type);
-        return preg_match('/' . $type . '$/', $class->getName()) === 1
-            || preg_match('/Eloquent' . $type . '$/', $class->getName()) === 1
+        return preg_match('/'.$type.'$/', $class->getName()) === 1
+            || preg_match('/Eloquent'.$type.'$/', $class->getName()) === 1
             && $this->implementsCrudMethods($class)
             && $this->dependsOnModels($class);
     }
@@ -151,7 +151,7 @@ class DetectController extends Controller
     /**
      * Get the type of the given class
      *
-     * @param ReflectionClass $class
+     * @param  ReflectionClass  $class
      *
      * @return string
      */

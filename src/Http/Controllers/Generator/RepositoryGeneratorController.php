@@ -2,7 +2,7 @@
 
 namespace Lbil\LaravelGenerator\Http\Controllers\Generator;
 
-use Str;
+use Illuminate\Support\Str;
 use Lbil\LaravelGenerator\Http\Controllers\Detect\DetectController;
 use Lbil\LaravelGenerator\Http\Requests\Generator\RepositoryGeneratorRequest;
 

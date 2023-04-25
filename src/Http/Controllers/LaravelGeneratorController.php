@@ -12,7 +12,7 @@ use Lbil\LaravelGenerator\Http\Controllers\Detect\DetectController;
 class LaravelGeneratorController extends Controller
 {
     /**
-     * @param Request $request
+     * @param  Request  $request
      *
      * @return Application|Factory|View
      */

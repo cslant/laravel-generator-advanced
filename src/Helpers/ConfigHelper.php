@@ -9,7 +9,7 @@ class ConfigHelper
     /**
      * Get config
      *
-     * @param string|null $generatorName
+     * @param  string|null  $generatorName
      *
      * @return array
      * @throws LaravelGeneratorException
@@ -33,8 +33,8 @@ class ConfigHelper
     /**
      * Merge config
      *
-     * @param array $defaults
-     * @param array $generatorName
+     * @param  array  $defaults
+     * @param  array  $generatorName
      *
      * @return array
      */
@@ -60,7 +60,7 @@ class ConfigHelper
     /**
      * Check is associative key array
      *
-     * @param mixed $key
+     * @param  mixed  $key
      *
      * @return bool
      */

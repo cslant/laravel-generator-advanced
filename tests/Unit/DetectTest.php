@@ -8,7 +8,7 @@ use Lbil\LaravelGenerator\Http\Controllers\Detect\DetectController;
 
 class DetectTest extends TestCase
 {
-    protected $detectController;
+    protected DetectController|Mockery\LegacyMockInterface|Mockery\MockInterface $detectController;
 
     /**
      * @return void

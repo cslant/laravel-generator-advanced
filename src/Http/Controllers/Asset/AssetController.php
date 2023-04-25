@@ -12,7 +12,7 @@ use Illuminate\Routing\Controller as BaseController;
 class AssetController extends BaseController
 {
     /**
-     * @param Request $request
+     * @param  Request  $request
      *
      * @return string
      */
