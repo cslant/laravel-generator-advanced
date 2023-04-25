@@ -2,13 +2,13 @@
 
 namespace Lbil\LaravelGenerator\Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
-use Mockery;
 use Lbil\LaravelGenerator\Http\Controllers\Detect\DetectController;
+use Mockery;
+use PHPUnit\Framework\TestCase;
 
 class DetectTest extends TestCase
 {
-    protected $detectController;
+    protected DetectController|Mockery\LegacyMockInterface|Mockery\MockInterface $detectController;
 
     /**
      * @return void
@@ -29,7 +29,7 @@ class DetectTest extends TestCase
     }
 
     /**
-     * Test detect pattern function is return the correct value
+     * Test detect pattern function is return the correct value.
      *
      * @return void
      */

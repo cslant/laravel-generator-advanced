@@ -9,15 +9,11 @@ use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 /**
  * Class ApiRequest.
- * @package Lbil\LaravelGenerator\Http\Requests
- *
- * This class is used to handle the validation error response. It will return the error message in JSON format.
  */
 abstract class ApiRequest extends FormRequest
 {
     /**
-     * @param Validator $validator
-     *
+     * @param  Validator  $validator
      * @return void
      */
     public function failedValidation(Validator $validator): void

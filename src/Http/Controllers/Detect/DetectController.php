@@ -12,7 +12,6 @@ class DetectController extends Controller
 {
     /**
      * @param $file
-     *
      * @return ReflectionClass|null
      */
     public function getClassFromFile($file)
@@ -22,19 +21,18 @@ class DetectController extends Controller
 
         // Match namespace and class name
         preg_match('/namespace\s+(.*?);.*?class\s+(\w+)/s', $content, $matches);
-        if (!isset($matches[1]) || !isset($matches[2])) {
+        if (! isset($matches[1]) || ! isset($matches[2])) {
             return null;
         }
 
         $namespace = $matches[1];
-        $class = $namespace . '\\' . $matches[2];
+        $class = $namespace.'\\'.$matches[2];
 
         return class_exists($class) ? new ReflectionClass($class) : null;
     }
 
     /**
-     * @param ReflectionClass $class
-     *
+     * @param  ReflectionClass  $class
      * @return bool
      */
     private function dependsOnModels(ReflectionClass $class)
@@ -45,14 +43,14 @@ class DetectController extends Controller
                 return true;
             }
         }
+
         return false;
     }
 
     /**
-     * Check if the class implements the CRUD methods
+     * Check if the class implements the CRUD methods.
      *
-     * @param ReflectionClass $class
-     *
+     * @param  ReflectionClass  $class
      * @return bool
      */
     protected function implementsCrudMethods(ReflectionClass $class)
@@ -62,7 +60,7 @@ class DetectController extends Controller
             'create',
             'read',
             'update',
-            'delete'
+            'delete',
         ];
 
         foreach ($methods as $method) {
@@ -78,10 +76,9 @@ class DetectController extends Controller
      * Check if the class is a repository class
      * A repository class must have a name ending with "Repository" or "EloquentRepository"
      * and implement the CRUD methods
-     * and have a dependency on a model
+     * and have a dependency on a model.
      *
-     * @param ReflectionClass $class
-     *
+     * @param  ReflectionClass  $class
      * @return bool
      */
     public function isRepositoryClass(ReflectionClass $class)
@@ -91,10 +88,9 @@ class DetectController extends Controller
 
     /**
      * Check if the class is a service class
-     * A service class must have a name ending with "Service" or "EloquentService"
+     * A service class must have a name ending with "Service" or "EloquentService".
      *
-     * @param ReflectionClass $class
-     *
+     * @param  ReflectionClass  $class
      * @return bool
      */
     public function isServiceClass(ReflectionClass $class)
@@ -106,10 +102,9 @@ class DetectController extends Controller
      * Check if the class is a controller class
      * A controller class must have a name ending with "Controller" or "EloquentController"
      * and implement the CRUD methods
-     * and have a dependency on a model
+     * and have a dependency on a model.
      *
-     * @param ReflectionClass $class
-     *
+     * @param  ReflectionClass  $class
      * @return bool
      */
     public function isControllerClass(ReflectionClass $class)
@@ -119,10 +114,9 @@ class DetectController extends Controller
 
     /**
      * Check if the class is an action class
-     * An action class must have a name ending with "Action" or "EloquentAction"
+     * An action class must have a name ending with "Action" or "EloquentAction".
      *
-     * @param ReflectionClass $class
-     *
+     * @param  ReflectionClass  $class
      * @return bool
      */
     public function isActionClass(ReflectionClass $class)
@@ -132,27 +126,26 @@ class DetectController extends Controller
 
     /**
      * Check if the class is a class of the given type
-     * A class of the given type must have a name ending with the given type or "Eloquent" + the given type
+     * A class of the given type must have a name ending with the given type or "Eloquent" + the given type.
      *
-     * @param ReflectionClass $class
+     * @param  ReflectionClass  $class
      * @param $type
-     *
      * @return bool
      */
     protected function checkClassType(ReflectionClass $class, $type)
     {
         $type = ucfirst($type);
-        return preg_match('/' . $type . '$/', $class->getName()) === 1
-            || preg_match('/Eloquent' . $type . '$/', $class->getName()) === 1
+
+        return preg_match('/'.$type.'$/', $class->getName()) === 1
+            || preg_match('/Eloquent'.$type.'$/', $class->getName()) === 1
             && $this->implementsCrudMethods($class)
             && $this->dependsOnModels($class);
     }
 
     /**
-     * Get the type of the given class
+     * Get the type of the given class.
      *
-     * @param ReflectionClass $class
-     *
+     * @param  ReflectionClass  $class
      * @return string
      */
     protected function getClassType(ReflectionClass $class)
@@ -178,7 +171,7 @@ class DetectController extends Controller
     }
 
     /**
-     * Get the type of all classes in the app folder
+     * Get the type of all classes in the app folder.
      *
      * @return array[]
      */
@@ -189,7 +182,7 @@ class DetectController extends Controller
         $type = [];
 
         foreach ($files as $file) {
-            if (!$file->isFile() || $file->getExtension() !== 'php') {
+            if (! $file->isFile() || $file->getExtension() !== 'php') {
                 continue;
             }
 

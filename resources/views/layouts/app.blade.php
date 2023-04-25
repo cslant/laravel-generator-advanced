@@ -10,7 +10,8 @@
         @yield('title', config('laravel-generator.app_name', __('laravel-generator::generator.app_name')))
     </title>
     <!-- Fonts and icons -->
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"/>
 
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
@@ -21,17 +22,17 @@
 </head>
 
 <body class="g-sidenav-show bg-gray-200">
-    @include('laravel-generator::shared.left_bar')
+@include('laravel-generator::shared.left_bar')
 
-    <div class="main-content position-relative max-height-vh-100 h-100">
-        <!-- Navbar -->
-        @include('laravel-generator::shared.navbar')
-        <!-- End Navbar -->
+<div class="main-content position-relative max-height-vh-100 h-100">
+    <!-- Navbar -->
+    @include('laravel-generator::shared.navbar')
+    <!-- End Navbar -->
 
-        @yield('laravel-generator-content')
-    </div>
+    @yield('laravel-generator-content')
+</div>
 
-    @include('laravel-generator::shared.configurator_settings')
+@include('laravel-generator::shared.configurator_settings')
 
-    @include('laravel-generator::shared.footer')
+@include('laravel-generator::shared.footer')
 </body>
