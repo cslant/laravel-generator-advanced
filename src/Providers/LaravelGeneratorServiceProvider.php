@@ -14,38 +14,38 @@ class LaravelGeneratorServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $viewPath = __DIR__ . '/../../resources/views';
+        $viewPath = __DIR__.'/../../resources/views';
         $this->loadViewsFrom($viewPath, 'laravel-generator');
 
         // Publish a config file
-        $configPath = __DIR__ . '/../../config/laravel-generator.php';
+        $configPath = __DIR__.'/../../config/laravel-generator.php';
         $this->publishes([
             $configPath => config_path('laravel-generator.php'),
         ], 'config');
 
         // Publish views
         $this->publishes([
-            __DIR__ . '/../../resources/views' => config('laravel-generator.defaults.paths.views'),
+            __DIR__.'/../../resources/views' => config('laravel-generator.defaults.paths.views'),
         ], 'views');
 
         // Include routes
-        $routePath = __DIR__ . '/../../routes/web.php';
+        $routePath = __DIR__.'/../../routes/web.php';
         if (file_exists($routePath)) {
             $this->loadRoutesFrom($routePath);
         }
 
         // Load package helpers file
-        $helpersPath = __DIR__ . '/../../common/helpers.php';
+        $helpersPath = __DIR__.'/../../common/helpers.php';
         if (file_exists($helpersPath)) {
             require_once $helpersPath;
         }
 
         // Load language files
-        $this->loadTranslationsFrom(__DIR__ . '/../../lang', 'laravel-generator');
+        $this->loadTranslationsFrom(__DIR__.'/../../lang', 'laravel-generator');
 
         // Publish language files
         $this->publishes([
-            __DIR__ . '/../../lang' => resource_path('lang/vendor/laravel-generator'),
+            __DIR__.'/../../lang' => resource_path('lang/vendor/laravel-generator'),
         ], 'lang');
     }
 
@@ -56,7 +56,7 @@ class LaravelGeneratorServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $configPath = __DIR__ . '/../../config/laravel-generator.php';
+        $configPath = __DIR__.'/../../config/laravel-generator.php';
         $this->mergeConfigFrom($configPath, 'laravel-generator');
 
         $this->app->singleton('laravel-generator', function () {

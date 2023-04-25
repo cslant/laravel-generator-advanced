@@ -13,7 +13,6 @@ class AssetController extends BaseController
 {
     /**
      * @param  Request  $request
-     *
      * @return string
      */
     public function index(Request $request)
@@ -28,7 +27,7 @@ class AssetController extends BaseController
                 $fileSystem->get($path),
                 200,
                 [
-                    'Content-Type' => (pathinfo($asset))['extension'] == 'css'
+                    'Content-Type' => pathinfo($asset)['extension'] == 'css'
                         ? 'text/css'
                         : 'application/javascript',
                 ]

@@ -4,7 +4,6 @@ namespace Lbil\LaravelGenerator\Http\Controllers\Generator;
 
 use Illuminate\Support\Str;
 use Lbil\LaravelGenerator\Http\Controllers\Detect\DetectController;
-use Lbil\LaravelGenerator\Http\Requests\Generator\RepositoryGeneratorRequest;
 
 class RepositoryGeneratorController extends GeneratorController
 {
@@ -44,7 +43,7 @@ class RepositoryGeneratorController extends GeneratorController
     {
         $filePath = app_path("Repositories/{$fileName}");
 
-        if (!is_dir(dirname($filePath))) {
+        if (! is_dir(dirname($filePath))) {
             mkdir(dirname($filePath), 0777, true);
         }
 

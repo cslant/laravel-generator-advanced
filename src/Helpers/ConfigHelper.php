@@ -7,11 +7,11 @@ use Lbil\LaravelGenerator\Exceptions\LaravelGeneratorException;
 class ConfigHelper
 {
     /**
-     * Get config
+     * Get config.
      *
      * @param  string|null  $generatorName
-     *
      * @return array
+     *
      * @throws LaravelGeneratorException
      */
     public function generatorConfig(?string $generatorName = null): array
@@ -23,7 +23,7 @@ class ConfigHelper
         $defaults = config('laravel-generator.defaults', []);
         $generators = config('laravel-generator.generators', []);
 
-        if (!isset($generators[$generatorName])) {
+        if (! isset($generators[$generatorName])) {
             throw new LaravelGeneratorException('Generator name not found');
         }
 
@@ -31,11 +31,10 @@ class ConfigHelper
     }
 
     /**
-     * Merge config
+     * Merge config.
      *
      * @param  array  $defaults
      * @param  array  $generatorName
-     *
      * @return array
      */
     private function mergeConfig(array $defaults, array $generatorName): array
@@ -58,10 +57,9 @@ class ConfigHelper
     }
 
     /**
-     * Check is associative key array
+     * Check is associative key array.
      *
      * @param  mixed  $key
-     *
      * @return bool
      */
     private function isAssociativeArray(mixed $key): bool
