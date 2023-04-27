@@ -6,13 +6,17 @@ if (! function_exists('laravel_generator_dist_path')) {
     /**
      * Returns laravel-generator composer dist path.
      *
-     * @param  string|null  $asset  string
+     * @param  string|null  $asset
      * @return string
      */
     function laravel_generator_dist_path(string $asset = null): string
     {
         $defaultPath = config('laravel-generator.defaults.paths.ui_package_path').'/dist/';
-        $path = base_path(config('laravel-generator.defaults.paths.laravel_generator_assets_path', $defaultPath));
+        $assetPath = config('laravel-generator.defaults.paths.laravel_generator_assets_path', $defaultPath);
+        if (! str_ends_with($assetPath, '/')) {
+            $assetPath .= '/';
+        }
+        $path = base_path($assetPath);
 
         if (! $asset) {
             return realpath($path);
