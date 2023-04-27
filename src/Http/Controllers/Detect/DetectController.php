@@ -11,6 +11,31 @@ use ReflectionMethod;
 class DetectController extends Controller
 {
     /**
+     * Get the type of all classes in the app folder.
+     *
+     * @return array[]
+     */
+    public function detect()
+    {
+        $recursiveDirectoryIterator = new RecursiveDirectoryIterator(app_path());
+        $files = new RecursiveIteratorIterator($recursiveDirectoryIterator);
+        $type = [];
+
+        foreach ($files as $file) {
+            if (!$file->isFile() || $file->getExtension() !== 'php') {
+                continue;
+            }
+
+            $class = $this->getClassFromFile($file);
+            if ($class !== null) {
+                $type[] = $this->getClassType($class);
+            }
+        }
+
+        return $type;
+    }
+
+    /**
      * @param $file
      * @return ReflectionClass|null
      */
@@ -21,7 +46,7 @@ class DetectController extends Controller
 
         // Match namespace and class name
         preg_match('/namespace\s+(.*?);.*?class\s+(\w+)/s', $content, $matches);
-        if (! isset($matches[1]) || ! isset($matches[2])) {
+        if (!isset($matches[1]) || !isset($matches[2])) {
             return null;
         }
 
@@ -32,19 +57,63 @@ class DetectController extends Controller
     }
 
     /**
+     * Get the type of the given class.
+     *
+     * @param  ReflectionClass  $class
+     * @return string
+     */
+    protected function getClassType(ReflectionClass $class)
+    {
+        $type = 'other';
+
+        switch (true) {
+            case $this->isRepositoryClass($class):
+                $type = 'repository';
+                break;
+            case $this->isServiceClass($class):
+                $type = 'service';
+                break;
+            case $this->isControllerClass($class):
+                $type = 'controller';
+                break;
+            case $this->isActionClass($class):
+                $type = 'action';
+                break;
+        }
+
+        return $type;
+    }
+
+    /**
+     * Check if the class is a repository class
+     * A repository class must have a name ending with "Repository" or "EloquentRepository"
+     * and implement the CRUD methods
+     * and have a dependency on a model.
+     *
      * @param  ReflectionClass  $class
      * @return bool
      */
-    private function dependsOnModels(ReflectionClass $class)
+    public function isRepositoryClass(ReflectionClass $class)
     {
-        $dependencies = $class->getConstructor()->getParameters();
-        foreach ($dependencies as $dependency) {
-            if (preg_match('/Model$/', $dependency->getClass()->getName()) === 1) {
-                return true;
-            }
-        }
+        return $this->checkClassType($class, 'repository');
+    }
 
-        return false;
+    /**
+     * Check if the class is a class of the given type
+     * A class of the given type must have a name ending with the given type or "Eloquent" + the given type.
+     *
+     * @param  ReflectionClass  $class
+     * @param $type
+     * @return bool
+     */
+    protected function checkClassType(ReflectionClass $class, $type)
+    {
+        $type = ucfirst($type);
+
+        return preg_match('/'.$type.'$/', $class->getName()) === 1
+            || preg_match('/Eloquent'.$type.'$/', $class->getName()) === 1
+            && $this->implementsCrudMethods($class)
+            && $this->dependsOnModels($class);
     }
 
     /**
@@ -73,17 +142,19 @@ class DetectController extends Controller
     }
 
     /**
-     * Check if the class is a repository class
-     * A repository class must have a name ending with "Repository" or "EloquentRepository"
-     * and implement the CRUD methods
-     * and have a dependency on a model.
-     *
      * @param  ReflectionClass  $class
      * @return bool
      */
-    public function isRepositoryClass(ReflectionClass $class)
+    private function dependsOnModels(ReflectionClass $class)
     {
-        return $this->checkClassType($class, 'repository');
+        $dependencies = $class->getConstructor()->getParameters();
+        foreach ($dependencies as $dependency) {
+            if (preg_match('/Model$/', $dependency->getClass()->getName()) === 1) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -122,76 +193,5 @@ class DetectController extends Controller
     public function isActionClass(ReflectionClass $class)
     {
         return $this->checkClassType($class, 'action');
-    }
-
-    /**
-     * Check if the class is a class of the given type
-     * A class of the given type must have a name ending with the given type or "Eloquent" + the given type.
-     *
-     * @param  ReflectionClass  $class
-     * @param $type
-     * @return bool
-     */
-    protected function checkClassType(ReflectionClass $class, $type)
-    {
-        $type = ucfirst($type);
-
-        return preg_match('/'.$type.'$/', $class->getName()) === 1
-            || preg_match('/Eloquent'.$type.'$/', $class->getName()) === 1
-            && $this->implementsCrudMethods($class)
-            && $this->dependsOnModels($class);
-    }
-
-    /**
-     * Get the type of the given class.
-     *
-     * @param  ReflectionClass  $class
-     * @return string
-     */
-    protected function getClassType(ReflectionClass $class)
-    {
-        $type = 'other';
-
-        switch (true) {
-            case $this->isRepositoryClass($class):
-                $type = 'repository';
-                break;
-            case $this->isServiceClass($class):
-                $type = 'service';
-                break;
-            case $this->isControllerClass($class):
-                $type = 'controller';
-                break;
-            case $this->isActionClass($class):
-                $type = 'action';
-                break;
-        }
-
-        return $type;
-    }
-
-    /**
-     * Get the type of all classes in the app folder.
-     *
-     * @return array[]
-     */
-    public function detect()
-    {
-        $recursiveDirectoryIterator = new RecursiveDirectoryIterator(app_path());
-        $files = new RecursiveIteratorIterator($recursiveDirectoryIterator);
-        $type = [];
-
-        foreach ($files as $file) {
-            if (! $file->isFile() || $file->getExtension() !== 'php') {
-                continue;
-            }
-
-            $class = $this->getClassFromFile($file);
-            if ($class !== null) {
-                $type[] = $this->getClassType($class);
-            }
-        }
-
-        return $type;
     }
 }
