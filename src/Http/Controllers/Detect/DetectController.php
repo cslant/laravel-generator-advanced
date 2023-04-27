@@ -15,7 +15,7 @@ class DetectController extends Controller
      *
      * @return array[]
      */
-    public function detect()
+    public function detect(): array
     {
         $recursiveDirectoryIterator = new RecursiveDirectoryIterator(app_path());
         $files = new RecursiveIteratorIterator($recursiveDirectoryIterator);
@@ -39,7 +39,7 @@ class DetectController extends Controller
      * @param $file
      * @return ReflectionClass|null
      */
-    public function getClassFromFile($file)
+    public function getClassFromFile($file): ?ReflectionClass
     {
         $content = file_get_contents($file);
         $matches = [];
@@ -62,7 +62,7 @@ class DetectController extends Controller
      * @param  ReflectionClass  $class
      * @return string
      */
-    protected function getClassType(ReflectionClass $class)
+    protected function getClassType(ReflectionClass $class): string
     {
         $type = 'other';
 
@@ -93,7 +93,7 @@ class DetectController extends Controller
      * @param  ReflectionClass  $class
      * @return bool
      */
-    public function isRepositoryClass(ReflectionClass $class)
+    public function isRepositoryClass(ReflectionClass $class): bool
     {
         return $this->checkClassType($class, 'repository');
     }
@@ -106,7 +106,7 @@ class DetectController extends Controller
      * @param $type
      * @return bool
      */
-    protected function checkClassType(ReflectionClass $class, $type)
+    protected function checkClassType(ReflectionClass $class, $type): bool
     {
         $type = ucfirst($type);
 
@@ -122,7 +122,7 @@ class DetectController extends Controller
      * @param  ReflectionClass  $class
      * @return bool
      */
-    protected function implementsCrudMethods(ReflectionClass $class)
+    protected function implementsCrudMethods(ReflectionClass $class): bool
     {
         $methods = $class->getMethods(ReflectionMethod::IS_PUBLIC);
         $crudMethods = [
@@ -145,7 +145,7 @@ class DetectController extends Controller
      * @param  ReflectionClass  $class
      * @return bool
      */
-    private function dependsOnModels(ReflectionClass $class)
+    private function dependsOnModels(ReflectionClass $class): bool
     {
         $dependencies = $class->getConstructor()->getParameters();
         foreach ($dependencies as $dependency) {
@@ -164,7 +164,7 @@ class DetectController extends Controller
      * @param  ReflectionClass  $class
      * @return bool
      */
-    public function isServiceClass(ReflectionClass $class)
+    public function isServiceClass(ReflectionClass $class): bool
     {
         return $this->checkClassType($class, 'service');
     }
@@ -178,7 +178,7 @@ class DetectController extends Controller
      * @param  ReflectionClass  $class
      * @return bool
      */
-    public function isControllerClass(ReflectionClass $class)
+    public function isControllerClass(ReflectionClass $class): bool
     {
         return $this->checkClassType($class, 'controller');
     }
@@ -190,7 +190,7 @@ class DetectController extends Controller
      * @param  ReflectionClass  $class
      * @return bool
      */
-    public function isActionClass(ReflectionClass $class)
+    public function isActionClass(ReflectionClass $class): bool
     {
         return $this->checkClassType($class, 'action');
     }

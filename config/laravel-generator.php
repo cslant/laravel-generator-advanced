@@ -25,13 +25,13 @@ return [
 
             'views' => base_path('resources/views/vendor/laravel-generator'),
 
-            'ui_package_path' => 'vendor/lbil/laravel-generator-ui',
+            'ui_package_path' => 'vendor/lbiltech/laravel-generator-ui',
 
             'assets_folder' => 'dist/',
 
             'laravel_generator_assets_path' => env(
                 'TH_LARAVEL_GENERATOR_ASSETS_PATH',
-                'vendor/lbil/laravel-generator-ui/dist/'
+                'vendor/lbiltech/laravel-generator-ui/dist/'
             ),
         ],
     ],
