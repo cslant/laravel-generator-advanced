@@ -30,7 +30,7 @@ if (!function_exists('laravel_generator_asset')) {
     /**
      * Returns asset from laravel-generator composer package.
      *
-     * @param $asset string
+     * @param  string  $asset
      * @return string
      *
      * @throws LaravelGeneratorException
@@ -53,7 +53,7 @@ if (!function_exists('laravel_generator_dist_path_allowed')) {
     /**
      * Returns asset allowed from laravel-generator composer package.
      *
-     * @param $asset string
+     * @param  string  $asset
      * @return string
      *
      * @throws LaravelGeneratorException
