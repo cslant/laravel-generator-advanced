@@ -1,6 +1,6 @@
 <?php
 
-namespace Lbil\LaravelGenerator\Http\Controllers\Asset;
+namespace CSlant\LaravelGenerator\Http\Controllers\Asset;
 
 use DateTime;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
@@ -15,7 +15,7 @@ class AssetController extends BaseController
      * @param  Request  $request
      * @return string
      */
-    public function index(Request $request)
+    public function index(Request $request): string
     {
         $fileSystem = new Filesystem();
         $asset = $request->offsetGet('asset');

@@ -1,6 +1,6 @@
 <?php
 
-use Lbil\LaravelGenerator\Exceptions\LaravelGeneratorException;
+use CSlant\LaravelGenerator\Exceptions\LaravelGeneratorException;
 
 if (!function_exists('laravel_generator_dist_path')) {
     /**
@@ -30,7 +30,7 @@ if (!function_exists('laravel_generator_asset')) {
     /**
      * Returns asset from laravel-generator composer package.
      *
-     * @param $asset string
+     * @param  string  $asset
      * @return string
      *
      * @throws LaravelGeneratorException
@@ -43,7 +43,7 @@ if (!function_exists('laravel_generator_asset')) {
             throw new LaravelGeneratorException(sprintf('%s - this Laravel Generator asset does not exist', $asset));
         }
 
-        $useAbsolutePath = config('laravel-generator.defaults.paths.use_absolute_path', true);
+        $useAbsolutePath = config('laravel-generator.defaults.paths.use_absolute_path');
 
         return route('laravel_generator.asset', ['asset' => $asset], $useAbsolutePath).'?v='.filemtime($file);
     }
@@ -53,7 +53,7 @@ if (!function_exists('laravel_generator_dist_path_allowed')) {
     /**
      * Returns asset allowed from laravel-generator composer package.
      *
-     * @param $asset string
+     * @param  string  $asset
      * @return string
      *
      * @throws LaravelGeneratorException

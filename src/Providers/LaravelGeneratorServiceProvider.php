@@ -1,9 +1,8 @@
 <?php
 
-namespace Lbil\LaravelGenerator\Providers;
+namespace CSlant\LaravelGenerator\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Lbil\LaravelGenerator\Helpers\ConfigHelper;
 
 class LaravelGeneratorServiceProvider extends ServiceProvider
 {
@@ -17,22 +16,12 @@ class LaravelGeneratorServiceProvider extends ServiceProvider
         $viewPath = __DIR__.'/../../resources/views';
         $this->loadViewsFrom($viewPath, 'laravel-generator');
 
-        // Publish a config file
-        $configPath = __DIR__.'/../../config/laravel-generator.php';
-        $this->publishes([
-            $configPath => config_path('laravel-generator.php'),
-        ], 'config');
-
-        // Publish views
-        $this->publishes([
-            __DIR__.'/../../resources/views' => config('laravel-generator.defaults.paths.views'),
-        ], 'views');
-
-        // Include routes
         $routePath = __DIR__.'/../../routes/web.php';
         if (file_exists($routePath)) {
             $this->loadRoutesFrom($routePath);
         }
+
+        $this->loadTranslationsFrom(__DIR__.'/../../lang', 'laravel-generator');
 
         // Load package helpers file
         $helpersPath = __DIR__.'/../../common/helpers.php';
@@ -40,13 +29,8 @@ class LaravelGeneratorServiceProvider extends ServiceProvider
             require_once $helpersPath;
         }
 
-        // Load language files
-        $this->loadTranslationsFrom(__DIR__.'/../../lang', 'laravel-generator');
-
-        // Publish language files
-        $this->publishes([
-            __DIR__.'/../../lang' => resource_path('lang/vendor/laravel-generator'),
-        ], 'lang');
+        // Publish assets
+        $this->registerAssetPublishing();
     }
 
     /**
@@ -58,10 +42,6 @@ class LaravelGeneratorServiceProvider extends ServiceProvider
     {
         $configPath = __DIR__.'/../../config/laravel-generator.php';
         $this->mergeConfigFrom($configPath, 'laravel-generator');
-
-        $this->app->singleton('laravel-generator', function () {
-            return new ConfigHelper();
-        });
     }
 
     /**
@@ -72,5 +52,24 @@ class LaravelGeneratorServiceProvider extends ServiceProvider
     public function provides(): ?array
     {
         return ['laravel-generator'];
+    }
+
+    /**
+     * @return void
+     */
+    protected function registerAssetPublishing(): void
+    {
+        $configPath = __DIR__.'/../../config/laravel-generator.php';
+        $this->publishes([
+            $configPath => config_path('laravel-generator.php'),
+        ], 'config');
+
+        $this->publishes([
+            __DIR__.'/../../resources/views' => config('laravel-generator.defaults.paths.views'),
+        ], 'views');
+
+        $this->publishes([
+            __DIR__.'/../../lang' => resource_path('lang/vendor/laravel-generator'),
+        ], 'lang');
     }
 }

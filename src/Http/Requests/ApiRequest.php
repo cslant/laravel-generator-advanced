@@ -1,6 +1,6 @@
 <?php
 
-namespace Lbil\LaravelGenerator\Http\Requests;
+namespace CSlant\LaravelGenerator\Http\Requests;
 
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;

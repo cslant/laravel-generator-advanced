@@ -1,6 +1,6 @@
 <?php
 
-namespace Lbil\LaravelGenerator\Exceptions;
+namespace CSlant\LaravelGenerator\Exceptions;
 
 use Exception;
 
