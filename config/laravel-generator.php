@@ -11,16 +11,14 @@ return [
 
             'routes' => [
                 /* Route for laravel generator tool */
-                'tool' => env('TH_LARAVEL_GENERATOR_URL', 'laravel-generator'),
+                'tool' => env('TH_LARAVEL_GENERATOR_TOOL_ROUTE', 'laravel-generator'),
             ],
         ],
     ],
 
     'defaults' => [
         'paths' => [
-            /*
-             * Edit to include full URL in ui for assets
-             */
+            /* Edit to include full URL in ui for assets */
             'use_absolute_path' => env('TH_LARAVEL_GENERATOR_USE_ABSOLUTE_PATH', true),
 
             'views' => base_path('resources/views/vendor/laravel-generator'),
