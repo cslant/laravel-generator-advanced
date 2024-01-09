@@ -1,6 +1,6 @@
 <?php
 
-use Lbil\LaravelGenerator\Exceptions\LaravelGeneratorException;
+use CSlant\LaravelGenerator\Exceptions\LaravelGeneratorException;
 
 if (!function_exists('laravel_generator_dist_path')) {
     /**
@@ -43,7 +43,7 @@ if (!function_exists('laravel_generator_asset')) {
             throw new LaravelGeneratorException(sprintf('%s - this Laravel Generator asset does not exist', $asset));
         }
 
-        $useAbsolutePath = config('laravel-generator.defaults.paths.use_absolute_path', true);
+        $useAbsolutePath = config('laravel-generator.defaults.paths.use_absolute_path');
 
         return route('laravel_generator.asset', ['asset' => $asset], $useAbsolutePath).'?v='.filemtime($file);
     }

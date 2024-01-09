@@ -1,6 +1,6 @@
 <?php
 
-namespace Lbil\LaravelGenerator\Http\Controllers\Detect;
+namespace CSlant\LaravelGenerator\Http\Controllers\Detect;
 
 use Illuminate\Routing\Controller;
 use RecursiveDirectoryIterator;
@@ -69,15 +69,19 @@ class DetectController extends Controller
         switch (true) {
             case $this->isRepositoryClass($class):
                 $type = 'repository';
+
                 break;
             case $this->isServiceClass($class):
                 $type = 'service';
+
                 break;
             case $this->isControllerClass($class):
                 $type = 'controller';
+
                 break;
             case $this->isActionClass($class):
                 $type = 'action';
+
                 break;
         }
 

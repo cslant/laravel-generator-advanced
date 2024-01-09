@@ -1,8 +1,8 @@
 <?php
 
-namespace Lbil\LaravelGenerator\Tests\Unit;
+namespace CSlant\LaravelGenerator\Tests\Unit;
 
-use Lbil\LaravelGenerator\Http\Controllers\Detect\DetectController;
+use CSlant\LaravelGenerator\Http\Controllers\Detect\DetectController;
 use Mockery;
 use PHPUnit\Framework\TestCase;
 
