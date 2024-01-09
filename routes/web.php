@@ -1,11 +1,11 @@
 <?php
 
-use Illuminate\Routing\Router;
-use Illuminate\Support\Facades\Route;
 use CSlant\LaravelGenerator\Helpers\ConfigHelper;
 use CSlant\LaravelGenerator\Http\Controllers\Asset\AssetController;
 use CSlant\LaravelGenerator\Http\Controllers\Generator\RepositoryGeneratorController;
 use CSlant\LaravelGenerator\Http\Controllers\LaravelGeneratorController;
+use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Route;
 
 Route::namespace('CSlant\LaravelGenerator\Http\Controllers')->group(function () {
     $configRepository = resolve(ConfigHelper::class);

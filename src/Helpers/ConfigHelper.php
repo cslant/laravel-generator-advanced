@@ -47,6 +47,7 @@ class ConfigHelper
                 && $this->isAssociativeArray($value)
             ) {
                 $merged[$key] = $this->mergeConfig($defaults[$key], $value);
+
                 continue;
             }
 

@@ -2,12 +2,12 @@
 
 namespace CSlant\LaravelGenerator\Http\Controllers;
 
+use CSlant\LaravelGenerator\Http\Controllers\Detect\DetectController;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use CSlant\LaravelGenerator\Http\Controllers\Detect\DetectController;
 
 class LaravelGeneratorController extends Controller
 {

@@ -3,7 +3,6 @@
 namespace CSlant\LaravelGenerator\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use CSlant\LaravelGenerator\Helpers\ConfigHelper;
 
 class LaravelGeneratorServiceProvider extends ServiceProvider
 {
