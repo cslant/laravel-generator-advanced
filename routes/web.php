@@ -2,12 +2,12 @@
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
-use Lbil\LaravelGenerator\Helpers\ConfigHelper;
-use Lbil\LaravelGenerator\Http\Controllers\Asset\AssetController;
-use Lbil\LaravelGenerator\Http\Controllers\Generator\RepositoryGeneratorController;
-use Lbil\LaravelGenerator\Http\Controllers\LaravelGeneratorController;
+use CSlant\LaravelGenerator\Helpers\ConfigHelper;
+use CSlant\LaravelGenerator\Http\Controllers\Asset\AssetController;
+use CSlant\LaravelGenerator\Http\Controllers\Generator\RepositoryGeneratorController;
+use CSlant\LaravelGenerator\Http\Controllers\LaravelGeneratorController;
 
-Route::namespace('Lbil\LaravelGenerator\Http\Controllers')->group(function () {
+Route::namespace('CSlant\LaravelGenerator\Http\Controllers')->group(function () {
     $configRepository = resolve(ConfigHelper::class);
     $generatorConfig = $configRepository->generatorConfig();
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Lbil\LaravelGenerator\Helpers;
+namespace CSlant\LaravelGenerator\Helpers;
 
-use Lbil\LaravelGenerator\Exceptions\LaravelGeneratorException;
+use CSlant\LaravelGenerator\Exceptions\LaravelGeneratorException;
 
 class ConfigHelper
 {

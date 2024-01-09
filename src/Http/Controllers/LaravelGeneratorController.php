@@ -1,13 +1,13 @@
 <?php
 
-namespace Lbil\LaravelGenerator\Http\Controllers;
+namespace CSlant\LaravelGenerator\Http\Controllers;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Lbil\LaravelGenerator\Http\Controllers\Detect\DetectController;
+use CSlant\LaravelGenerator\Http\Controllers\Detect\DetectController;
 
 class LaravelGeneratorController extends Controller
 {

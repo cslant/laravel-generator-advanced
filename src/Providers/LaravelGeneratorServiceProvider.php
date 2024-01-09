@@ -1,9 +1,9 @@
 <?php
 
-namespace Lbil\LaravelGenerator\Providers;
+namespace CSlant\LaravelGenerator\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Lbil\LaravelGenerator\Helpers\ConfigHelper;
+use CSlant\LaravelGenerator\Helpers\ConfigHelper;
 
 class LaravelGeneratorServiceProvider extends ServiceProvider
 {
