@@ -1,22 +1,11 @@
 <?php
 
 return [
-    'default' => 'default',
-
-    'app_name' => 'Laravel Generator Advanced',
-
-    'generators' => [
-        'default' => [
-            'path' => 'app',
-
-            'routes' => [
-                /* Route for laravel generator tool */
-                'tool' => env('LARA_GEN_ADV_TOOL_ROUTE', 'laravel-generator-advanced'),
-            ],
-        ],
-    ],
+    'tool_name' => 'Laravel Generator Advanced',
 
     'defaults' => [
+        'route_prefix' => env('LARA_GEN_ADV_ROUTE_PREFIX', 'laravel-generator-advanced'),
+
         'paths' => [
             /* Edit to include full URL in ui for assets */
             'use_absolute_path' => env('LARA_GEN_ADV_USE_ABSOLUTE_PATH', true),
