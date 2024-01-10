@@ -1,6 +1,6 @@
 <?php
 
-namespace CSlant\LaravelGenerator\Http\Controllers\Detect;
+namespace CSlant\LaraGenAdv\Http\Controllers\Detect;
 
 use Illuminate\Routing\Controller;
 use RecursiveDirectoryIterator;

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => 'Laravel Generator Config',
+    'title' => 'Laravel Generator Advanced Configuration',
     'description' => 'You can change the sidenav type just on desktop view.',
     'see_options' => 'See options.',
     'sidebar' => [

@@ -1,18 +1,18 @@
 <?php
 
-use CSlant\LaravelGenerator\Helpers\ConfigHelper;
-use CSlant\LaravelGenerator\Http\Controllers\Asset\AssetController;
-use CSlant\LaravelGenerator\Http\Controllers\Generator\RepositoryGeneratorController;
-use CSlant\LaravelGenerator\Http\Controllers\LaravelGeneratorController;
+use CSlant\LaraGenAdv\Helpers\ConfigHelper;
+use CSlant\LaraGenAdv\Http\Controllers\Asset\AssetController;
+use CSlant\LaraGenAdv\Http\Controllers\Generator\RepositoryGeneratorController;
+use CSlant\LaraGenAdv\Http\Controllers\LaravelGeneratorAdvancedController;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
-Route::namespace('CSlant\LaravelGenerator\Http\Controllers')->group(function () {
+Route::namespace('CSlant\LaraGenAdv\Http\Controllers')->group(function () {
     $configRepository = resolve(ConfigHelper::class);
     $generatorConfig = $configRepository->generatorConfig();
 
     Route::prefix($generatorConfig['routes']['tool'])->group(function (Router $router) {
-        Route::get('/', [LaravelGeneratorController::class, 'index'])->name('laravel_generator.index');
+        Route::get('/', [LaravelGeneratorAdvancedController::class, 'index'])->name('laravel_generator.index');
 
         Route::get('asset/{asset}', [AssetController::class, 'index'])
             ->name('laravel_generator.asset')

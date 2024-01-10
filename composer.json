@@ -1,12 +1,12 @@
 {
-    "name": "cslant/laravel-generator",
-    "description": "Laravel Generator",
-    "homepage": "https://github.com/cslant/laravel-generator",
+    "name": "cslant/laravel-generator-advanced",
+    "description": "Laravel Generator Advanced is a package that helps you generate CRUD, Migration, Model, Controller, Repository, Request, Resource, Factory, Seeder, Action, ...",
+    "homepage": "https://github.com/cslant/laravel-generator-advanced",
     "type": "library",
     "license": "MIT",
     "keywords": [
-        "laravel",
-        "generator",
+        "laravel generator",
+        "generator advanced",
         "crud generator",
         "migration generator",
         "model generator",
@@ -17,17 +17,17 @@
         "factory",
         "seeder",
         "action",
-        "laravel generator",
+        "laravel generator advanced",
         "cslant"
     ],
     "autoload": {
         "psr-4": {
-            "CSlant\\LaravelGenerator\\": "src/"
+            "CSlant\\LaraGenAdv\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "CSlant\\LaravelGenerator\\Tests\\": "tests/"
+            "CSlant\\LaraGenAdv\\Tests\\": "tests/"
         }
     },
     "authors": [
@@ -60,12 +60,12 @@
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
     },
     "support": {
-        "issues": "https://github.com/cslant/laravel-generator/issues"
+        "issues": "https://github.com/cslant/laravel-generator-advanced/issues"
     },
     "extra": {
         "laravel": {
             "providers": [
-                "CSlant\\LaravelGenerator\\Providers\\LaravelGeneratorServiceProvider"
+                "CSlant\\LaraGenAdv\\Providers\\LaravelGeneratorAdvancedServiceProvider"
             ]
         }
     },

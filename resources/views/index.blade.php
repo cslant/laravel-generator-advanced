@@ -1,7 +1,7 @@
-@extends('laravel-generator::layouts.app')
+@extends('lara-gen-adv::layouts.app')
 
-@section('title', __('laravel-generator::generator.dashboard'))
+@section('title', __('lara-gen-adv::generator.dashboard'))
 
-@section('laravel-generator-content')
+@section('lara-gen-adv-content')
 
 @endsection

@@ -3,9 +3,9 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                 <li class="breadcrumb-item text-sm">
-                    <a class="opacity-5 text-dark" href="javascript:void(0);">{{ config('laravel-generator.app_name') }}</a>
+                    <a class="opacity-5 text-dark" href="javascript:void(0);">{{ config('lara-gen-adv.app_name') }}</a>
                 </li>
-                <li class="breadcrumb-item text-sm text-dark active" aria-current="page">@yield('title', config('laravel-generator.app_name', __('laravel-generator::generator.app_name')))</li>
+                <li class="breadcrumb-item text-sm text-dark active" aria-current="page">@yield('title', config('lara-gen-adv.app_name', __('lara-gen-adv::generator.app_name')))</li>
             </ol>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">

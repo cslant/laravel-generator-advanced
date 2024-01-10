@@ -3,7 +3,7 @@
 return [
     'default' => 'default',
 
-    'app_name' => 'Laravel Generator',
+    'app_name' => 'Laravel Generator Advanced',
 
     'generators' => [
         'default' => [
@@ -11,7 +11,7 @@ return [
 
             'routes' => [
                 /* Route for laravel generator tool */
-                'tool' => env('TH_LARAVEL_GENERATOR_TOOL_ROUTE', 'laravel-generator'),
+                'tool' => env('TH_LARAVEL_GENERATOR_TOOL_ROUTE', 'laravel-generator-advanced'),
             ],
         ],
     ],
@@ -21,7 +21,7 @@ return [
             /* Edit to include full URL in ui for assets */
             'use_absolute_path' => env('TH_LARAVEL_GENERATOR_USE_ABSOLUTE_PATH', true),
 
-            'views' => base_path('resources/views/vendor/laravel-generator'),
+            'views' => base_path('resources/views/vendor/laravel-generator-advanced'),
 
             'ui_package_path' => 'vendor/cslant/laravel-generator-ui',
 

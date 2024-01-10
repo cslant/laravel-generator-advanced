@@ -1,10 +1,10 @@
 <?php
 
-namespace CSlant\LaravelGenerator\Providers;
+namespace CSlant\LaraGenAdv\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class LaravelGeneratorServiceProvider extends ServiceProvider
+class LaravelGeneratorAdvancedServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap services.
@@ -14,14 +14,14 @@ class LaravelGeneratorServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $viewPath = __DIR__.'/../../resources/views';
-        $this->loadViewsFrom($viewPath, 'laravel-generator');
+        $this->loadViewsFrom($viewPath, 'lara-gen-adv');
 
         $routePath = __DIR__.'/../../routes/web.php';
         if (file_exists($routePath)) {
             $this->loadRoutesFrom($routePath);
         }
 
-        $this->loadTranslationsFrom(__DIR__.'/../../lang', 'laravel-generator');
+        $this->loadTranslationsFrom(__DIR__.'/../../lang', 'lara-gen-adv');
 
         // Load package helpers file
         $helpersPath = __DIR__.'/../../common/helpers.php';
@@ -40,8 +40,8 @@ class LaravelGeneratorServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $configPath = __DIR__.'/../../config/laravel-generator.php';
-        $this->mergeConfigFrom($configPath, 'laravel-generator');
+        $configPath = __DIR__.'/../../config/laravel-generator-advanced.php';
+        $this->mergeConfigFrom($configPath, 'lara-gen-adv');
     }
 
     /**
@@ -51,7 +51,7 @@ class LaravelGeneratorServiceProvider extends ServiceProvider
      */
     public function provides(): ?array
     {
-        return ['laravel-generator'];
+        return ['lara-gen-adv'];
     }
 
     /**
@@ -59,17 +59,17 @@ class LaravelGeneratorServiceProvider extends ServiceProvider
      */
     protected function registerAssetPublishing(): void
     {
-        $configPath = __DIR__.'/../../config/laravel-generator.php';
+        $configPath = __DIR__.'/../../config/laravel-generator-advanced.php';
         $this->publishes([
-            $configPath => config_path('laravel-generator.php'),
+            $configPath => config_path('laravel-generator-advanced.php'),
         ], 'config');
 
         $this->publishes([
-            __DIR__.'/../../resources/views' => config('laravel-generator.defaults.paths.views'),
+            __DIR__.'/../../resources/views' => config('lara-gen-adv.defaults.paths.views'),
         ], 'views');
 
         $this->publishes([
-            __DIR__.'/../../lang' => resource_path('lang/vendor/laravel-generator'),
+            __DIR__.'/../../lang' => resource_path('lang/vendor/laravel-generator-advanced'),
         ], 'lang');
     }
 }

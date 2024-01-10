@@ -1,15 +1,15 @@
 <?php
 
-namespace CSlant\LaravelGenerator\Http\Controllers;
+namespace CSlant\LaraGenAdv\Http\Controllers;
 
-use CSlant\LaravelGenerator\Http\Controllers\Detect\DetectController;
+use CSlant\LaraGenAdv\Http\Controllers\Detect\DetectController;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class LaravelGeneratorController extends Controller
+class LaravelGeneratorAdvancedController extends Controller
 {
     /**
      * @param  Request  $request
@@ -20,6 +20,6 @@ class LaravelGeneratorController extends Controller
         $detectPatternController = new DetectController();
         $repositories = $detectPatternController->detect();
 
-        return view('laravel-generator::index');
+        return view('lara-gen-adv::index');
     }
 }

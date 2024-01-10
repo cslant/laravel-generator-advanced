@@ -1,6 +1,6 @@
 <?php
 
-namespace CSlant\LaravelGenerator\Http\Controllers\Asset;
+namespace CSlant\LaraGenAdv\Http\Controllers\Asset;
 
 use DateTime;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
@@ -33,7 +33,8 @@ class AssetController extends BaseController
                 ]
             ))->setSharedMaxAge(31536000)
                 ->setMaxAge(31536000)
-                ->setExpires(new DateTime('+1 year'));
+                ->setExpires(new DateTime('+1 year'))
+                ->getContent();
         } catch (FileNotFoundException $e) {
             return $e->getMessage();
         }

@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="#">
     <link rel="icon" type="image/png" href="#">
     <title>
-        @yield('title', config('laravel-generator.app_name', __('laravel-generator::generator.app_name')))
+        @yield('title', config('lara-gen-adv.app_name', __('lara-gen-adv::generator.app_name')))
     </title>
     <!-- Fonts and icons -->
     <link rel="stylesheet" type="text/css"
@@ -22,17 +22,17 @@
 </head>
 
 <body class="g-sidenav-show bg-gray-200">
-@include('laravel-generator::shared.left_bar')
+@include('lara-gen-adv::shared.left_bar')
 
 <div class="main-content position-relative max-height-vh-100 h-100">
     <!-- Navbar -->
-    @include('laravel-generator::shared.navbar')
+    @include('lara-gen-adv::shared.navbar')
     <!-- End Navbar -->
 
-    @yield('laravel-generator-content')
+    @yield('lara-gen-adv-content')
 </div>
 
-@include('laravel-generator::shared.configurator_settings')
+@include('lara-gen-adv::shared.configurator_settings')
 
-@include('laravel-generator::shared.footer')
+@include('lara-gen-adv::shared.footer')
 </body>
