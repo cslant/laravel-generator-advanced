@@ -13,9 +13,10 @@ class AssetController extends BaseController
 {
     /**
      * @param  Request  $request
-     * @return string
+     *
+     * @return Response
      */
-    public function index(Request $request): string
+    public function index(Request $request): Response
     {
         $fileSystem = new Filesystem();
         $asset = $request->offsetGet('asset');
@@ -27,16 +28,15 @@ class AssetController extends BaseController
                 $fileSystem->get($path),
                 200,
                 [
-                    'Content-Type' => pathinfo($asset)['extension'] == 'css'
+                    'Content-Type' => pathinfo($asset, PATHINFO_EXTENSION) == 'css'
                         ? 'text/css'
                         : 'application/javascript',
                 ]
             ))->setSharedMaxAge(31536000)
                 ->setMaxAge(31536000)
-                ->setExpires(new DateTime('+1 year'))
-                ->getContent();
+                ->setExpires(new DateTime('+1 year'));
         } catch (FileNotFoundException $e) {
-            return $e->getMessage();
+            return new Response($e->getMessage(), 404);
         }
     }
 }

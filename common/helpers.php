@@ -46,7 +46,7 @@ if (!function_exists('lara_gen_adv_asset')) {
 
         $useAbsolutePath = config('lara-gen-adv.defaults.paths.use_absolute_path');
 
-        return route('lara_gen_adv.asset', ['asset' => $asset], $useAbsolutePath);
+        return route('lara_gen_adv.asset', ['asset' => $asset], $useAbsolutePath).'?v='.filemtime($file);
     }
 }
 
