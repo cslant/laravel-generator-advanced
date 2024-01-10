@@ -1,6 +1,6 @@
 <?php
 
-namespace CSlant\LaravelGenerator\Http\Controllers\Asset;
+namespace CSlant\LaraGenAdv\Http\Controllers\Asset;
 
 use DateTime;
 use Illuminate\Contracts\Filesystem\FileNotFoundException;
@@ -13,21 +13,22 @@ class AssetController extends BaseController
 {
     /**
      * @param  Request  $request
-     * @return string
+     *
+     * @return Response
      */
-    public function index(Request $request): string
+    public function index(Request $request): Response
     {
         $fileSystem = new Filesystem();
         $asset = $request->offsetGet('asset');
 
         try {
-            $path = laravel_generator_dist_path($asset);
+            $path = lara_gen_adv_dist_path($asset);
 
             return (new Response(
                 $fileSystem->get($path),
                 200,
                 [
-                    'Content-Type' => pathinfo($asset)['extension'] == 'css'
+                    'Content-Type' => pathinfo($asset, PATHINFO_EXTENSION) == 'css'
                         ? 'text/css'
                         : 'application/javascript',
                 ]
@@ -35,7 +36,7 @@ class AssetController extends BaseController
                 ->setMaxAge(31536000)
                 ->setExpires(new DateTime('+1 year'));
         } catch (FileNotFoundException $e) {
-            return $e->getMessage();
+            return new Response($e->getMessage(), 404);
         }
     }
 }

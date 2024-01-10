@@ -1,10 +1,10 @@
 <?php
 
-namespace CSlant\LaravelGenerator\Exceptions;
+namespace CSlant\LaraGenAdv\Exceptions;
 
 use Exception;
 
-class LaravelGeneratorException extends Exception
+class LaravelGeneratorAdvancedException extends Exception
 {
     /**
      * @param  string  $message

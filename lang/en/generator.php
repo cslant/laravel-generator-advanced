@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'app_name' => 'Laravel Generator',
-    'dashboard' => 'Laravel Generator Dashboard',
+    'app_name' => 'Laravel Generator Advanced',
+    'dashboard' => 'Laravel Generator Advanced Dashboard',
 ];

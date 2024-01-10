@@ -1,18 +1,18 @@
 <?php
 
-use CSlant\LaravelGenerator\Exceptions\LaravelGeneratorException;
+use CSlant\LaraGenAdv\Exceptions\LaravelGeneratorAdvancedException;
 
-if (!function_exists('laravel_generator_dist_path')) {
+if (!function_exists('lara_gen_adv_dist_path')) {
     /**
-     * Returns laravel-generator composer dist path.
+     * Returns laravel-generator-advanced composer dist path.
      *
      * @param  string|null  $asset
      * @return string
      */
-    function laravel_generator_dist_path(string $asset = null): string
+    function lara_gen_adv_dist_path(string $asset = null): string
     {
-        $defaultPath = config('laravel-generator.defaults.paths.ui_package_path').'/dist/';
-        $assetPath = config('laravel-generator.defaults.paths.laravel_generator_assets_path', $defaultPath);
+        $defaultPath = config('lara-gen-adv.defaults.paths.ui_package_path').'/dist/';
+        $assetPath = config('lara-gen-adv.defaults.paths.lara_gen_adv_assets_path', $defaultPath);
         if (!str_ends_with($assetPath, '/')) {
             $assetPath .= '/';
         }
@@ -26,39 +26,41 @@ if (!function_exists('laravel_generator_dist_path')) {
     }
 }
 
-if (!function_exists('laravel_generator_asset')) {
+if (!function_exists('lara_gen_adv_asset')) {
     /**
-     * Returns asset from laravel-generator composer package.
+     * Returns asset from laravel-generator-advanced composer package.
      *
      * @param  string  $asset
+     *
      * @return string
      *
-     * @throws LaravelGeneratorException
+     * @throws LaravelGeneratorAdvancedException
      */
-    function laravel_generator_asset(string $asset): string
+    function lara_gen_adv_asset(string $asset): string
     {
-        $file = laravel_generator_dist_path($asset);
+        $file = lara_gen_adv_dist_path($asset);
 
         if (!file_exists($file)) {
-            throw new LaravelGeneratorException(sprintf('%s - this Laravel Generator asset does not exist', $asset));
+            throw new LaravelGeneratorAdvancedException(sprintf('%s - this Laravel Generator asset does not exist', $asset));
         }
 
-        $useAbsolutePath = config('laravel-generator.defaults.paths.use_absolute_path');
+        $useAbsolutePath = config('lara-gen-adv.defaults.paths.use_absolute_path');
 
-        return route('laravel_generator.asset', ['asset' => $asset], $useAbsolutePath).'?v='.filemtime($file);
+        return route('lara_gen_adv.asset', ['asset' => $asset], $useAbsolutePath).'?v='.filemtime($file);
     }
 }
 
-if (!function_exists('laravel_generator_dist_path_allowed')) {
+if (!function_exists('lara_gen_adv_dist_path_allowed')) {
     /**
-     * Returns asset allowed from laravel-generator composer package.
+     * Returns asset allowed from laravel-generator-advanced composer package.
      *
      * @param  string  $asset
+     *
      * @return string
      *
-     * @throws LaravelGeneratorException
+     * @throws LaravelGeneratorAdvancedException
      */
-    function laravel_generator_asset_allowed(string $asset): string
+    function lara_gen_adv_asset_allowed(string $asset): string
     {
         $allowed_files = [
             'favicon-16x16.png',
@@ -66,9 +68,9 @@ if (!function_exists('laravel_generator_dist_path_allowed')) {
         ];
 
         if (!in_array($asset, $allowed_files)) {
-            throw new LaravelGeneratorException(sprintf('%s - this Laravel Generator asset is not allowed', $asset));
+            throw new LaravelGeneratorAdvancedException(sprintf('%s - this Laravel Generator Advanced asset is not allowed', $asset));
         }
 
-        return laravel_generator_asset($asset);
+        return lara_gen_adv_asset($asset);
     }
 }

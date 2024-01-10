@@ -1,8 +1,8 @@
 <?php
 
-namespace CSlant\LaravelGenerator\Helpers;
+namespace CSlant\LaraGenAdv\Helpers;
 
-use CSlant\LaravelGenerator\Exceptions\LaravelGeneratorException;
+use CSlant\LaraGenAdv\Exceptions\LaravelGeneratorAdvancedException;
 
 class ConfigHelper
 {
@@ -10,21 +10,22 @@ class ConfigHelper
      * Get config.
      *
      * @param  string|null  $generatorName
+     *
      * @return array
      *
-     * @throws LaravelGeneratorException
+     * @throws LaravelGeneratorAdvancedException
      */
     public function generatorConfig(?string $generatorName = null): array
     {
         if ($generatorName === null) {
-            $generatorName = config('laravel-generator.default');
+            $generatorName = config('lara-gen-adv.default');
         }
 
-        $defaults = config('laravel-generator.defaults', []);
-        $generators = config('laravel-generator.generators', []);
+        $defaults = config('lara-gen-adv.defaults', []);
+        $generators = config('lara-gen-adv.generators', []);
 
         if (!isset($generators[$generatorName])) {
-            throw new LaravelGeneratorException('Generator name not found');
+            throw new LaravelGeneratorAdvancedException('Generator name not found');
         }
 
         return $this->mergeConfig($defaults, $generators[$generatorName]);

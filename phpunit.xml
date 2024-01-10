@@ -13,7 +13,7 @@
         </include>
     </coverage>
     <testsuites>
-        <testsuite name="CSlant LaravelGenerator Test Suite">
+        <testsuite name="CSlant Laravel Generator Advanced Test Suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

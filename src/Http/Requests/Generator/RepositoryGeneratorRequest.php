@@ -1,8 +1,8 @@
 <?php
 
-namespace CSlant\LaravelGenerator\Http\Requests\Generator;
+namespace CSlant\LaraGenAdv\Http\Requests\Generator;
 
-use CSlant\LaravelGenerator\Http\Requests\ApiRequest;
+use CSlant\LaraGenAdv\Http\Requests\ApiRequest;
 
 class RepositoryGeneratorRequest extends ApiRequest
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace CSlant\LaravelGenerator\Http\Controllers\Generator;
+namespace CSlant\LaraGenAdv\Http\Controllers\Generator;
 
-use CSlant\LaravelGenerator\Http\Controllers\Detect\DetectController;
+use CSlant\LaraGenAdv\Http\Controllers\Detect\DetectController;
 use Illuminate\Support\Str;
 
 class RepositoryGeneratorController extends GeneratorController
