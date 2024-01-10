@@ -7,7 +7,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="#">
     <link rel="icon" type="image/png" href="#">
     <title>
-        @yield('title', config('lara-gen-adv.app_name', __('lara-gen-adv::generator.app_name')))
+        @yield('title', config('lara-gen-adv.tool_name', __('lara-gen-adv::generator.tool_name')))
     </title>
     <!-- Fonts and icons -->
     <link rel="stylesheet" type="text/css"

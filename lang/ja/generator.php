@@ -1,6 +1,6 @@
 <?php
 
 return [
-    'app_name' => 'Laravel ジェネレーター',
+    'tool_name' => 'Laravel ジェネレーター',
     'dashboard' => 'Laravel ジェネレーター ダッシュボード',
 ];

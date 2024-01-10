@@ -28,7 +28,7 @@ class AssetController extends BaseController
                 $fileSystem->get($path),
                 200,
                 [
-                    'Content-Type' => pathinfo($asset, PATHINFO_EXTENSION) == 'css'
+                    'Content-Type' => pathinfo($path, PATHINFO_EXTENSION) == 'css'
                         ? 'text/css'
                         : 'application/javascript',
                 ]
