@@ -12,13 +12,13 @@ Route::namespace('CSlant\LaraGenAdv\Http\Controllers')->group(function () {
     $generatorConfig = $configRepository->generatorConfig();
 
     Route::prefix($generatorConfig['routes']['tool'])->group(function (Router $router) {
-        Route::get('/', [LaravelGeneratorAdvancedController::class, 'index'])->name('laravel_generator.index');
+        Route::get('/', [LaravelGeneratorAdvancedController::class, 'index'])->name('lara_gen_adv.index');
 
         Route::get('asset/{asset}', [AssetController::class, 'index'])
-            ->name('laravel_generator.asset')
+            ->name('lara_gen_adv.asset')
             ->where('asset', '.*');
 
         Route::get('repository', [RepositoryGeneratorController::class, 'index'])
-            ->name('laravel_generator.repository.index');
+            ->name('lara_gen_adv.repository.index');
     });
 });

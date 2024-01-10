@@ -18,7 +18,7 @@
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <!-- CSS Files --><!-- Nucleo Icons -->
-    <link id="pagestyle" href="{{ laravel_generator_asset('css/main.css') }}" rel="stylesheet"/>
+    <link href="{{ lara_gen_adv_asset('css/main.css') }}" rel="stylesheet"/>
 </head>
 
 <body class="g-sidenav-show bg-gray-200">

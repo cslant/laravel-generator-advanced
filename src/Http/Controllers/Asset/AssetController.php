@@ -21,7 +21,7 @@ class AssetController extends BaseController
         $asset = $request->offsetGet('asset');
 
         try {
-            $path = laravel_generator_dist_path($asset);
+            $path = lara_gen_adv_dist_path($asset);
 
             return (new Response(
                 $fileSystem->get($path),
